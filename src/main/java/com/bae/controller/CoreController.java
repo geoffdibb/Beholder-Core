@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bae.service.CoreService;
 
 @RestController
-@RequestMapping("/core")
+@RequestMapping("/beholder")
 public class CoreController {
 
 	@Autowired
@@ -33,6 +33,15 @@ public class CoreController {
 	public ResponseEntity<Object> userLogin(@PathVariable Object user) {
 		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
 	}
+	
+	@GetMapping("/search/{category}/{searchTerm}")
+	public ResponseEntity<Object> search(@PathVariable String category, @PathVariable String searchTerm) {
+		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
+	}
+	
+	
+	
+	
 	
 	
 	@RequestMapping("/logout")

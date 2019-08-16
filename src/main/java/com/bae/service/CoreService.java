@@ -9,6 +9,10 @@ public interface CoreService {
 	
 	String userLogin(Object user);
 	
+	String search(String category, String searchTerm);
+	
+	
+	
 	String getSearchByName();
 
 	String getSearchByLocation();
