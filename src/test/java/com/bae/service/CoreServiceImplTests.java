@@ -11,13 +11,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CoreServiceImplTests {
-	
+
 	@InjectMocks
 	CoreServiceImpl service;
-	
+
 	@Test
 	public void contextLoads() {
 		assertThat(service).isNotNull();
 	}
 
+	@Test
+	public void userLoginTest() {
+
+	}
+
+	@Test
+	public void searchTest() {
+
+	}
+
+	@Test
+	public void getProfileTest() {
+
+	}
+
+	@Test
+	public void getAssociates() {
+
+	}
 }
