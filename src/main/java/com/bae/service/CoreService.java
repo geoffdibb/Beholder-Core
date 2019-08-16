@@ -17,11 +17,7 @@ public interface CoreService {
 	
 	
 	
-	String getSearchByName();
-
-	String getSearchByLocation();
-
-	String getSearchByCarReg();
+	
 
 	String getAuditUserAccessLogs();
 	

@@ -18,6 +18,7 @@ public class CoreServiceImpl implements CoreService {
 	public String search(String category, String searchTerm) {
 		return rest.getForObject("http://IPAddressForSearchAPI/"+category+"/"+searchTerm, String.class);
 		//This should return results for things that match the category and searchTerm inputed
+		//The user should be able to choose a category of Name, Location or Car Reg
 	}
 	
 	public String getProfile() {
@@ -29,22 +30,6 @@ public class CoreServiceImpl implements CoreService {
 	}
 	
 	
-
-	public String getSearchByName() {
-		String searchResult = rest.getForObject("http://", String.class);
-		return null;
-	}
-
-	public String getSearchByLocation() {
-		String searchResult = rest.getForObject("http://", String.class);
-		return null;
-	}
-
-
-	public String getSearchByCarReg() {
-		String searchResult = rest.getForObject("http://", String.class);
-		return null;
-	}
 
 	public String getAuditUserAccessLogs() {
 		String auditLogs = rest.getForObject("http://", String.class);
