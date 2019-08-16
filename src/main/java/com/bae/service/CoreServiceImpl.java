@@ -1,38 +1,43 @@
 package com.bae.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CoreServiceImpl implements CoreService {
+	
+	@Autowired
+	private RestTemplate rest;
 
 	public String getSearchByName() {
-		// TODO Auto-generated method stub
+		String searchResult = rest.getForObject("http://", String.class);
 		return null;
 	}
 
 	public String getSearchByLocation() {
-		// TODO Auto-generated method stub
+		String searchResult = rest.getForObject("http://", String.class);
 		return null;
 	}
 
 
 	public String getSearchByCarReg() {
-		// TODO Auto-generated method stub
+		String searchResult = rest.getForObject("http://", String.class);
 		return null;
 	}
 
 	public String getLoggedInUser() {
-		// TODO Auto-generated method stub
+		String user = rest.getForObject("http://", String.class);
 		return null;
 	}
 
 	public String getAuditUserAccessLogs() {
-		// TODO Auto-generated method stub
+		String auditLogs = rest.getForObject("http://", String.class);
 		return null;
 	}
 
 	public String getSearchLogs() {
-		// TODO Auto-generated method stub
+		String searchLogs = rest.getForObject("http://", String.class);
 		return null;
 	}
 
@@ -41,8 +46,8 @@ public class CoreServiceImpl implements CoreService {
 		return null;
 	}
 
-	public String AuditUserAccessLogs() {
-		// TODO Auto-generated method stub
+	public String sendAuditUserAccessLogs() {
+		String auditLogs = rest.getForObject("http://", String.class);
 		return null;
 	}
 
