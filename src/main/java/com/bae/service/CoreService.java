@@ -13,7 +13,7 @@ public interface CoreService {
 	
 	String getProfile();
 	
-	String getAssociates();
+	String getAssociates(Object profile);
 	
 	
 	

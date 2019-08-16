@@ -12,21 +12,25 @@ public class CoreServiceImpl implements CoreService {
 	
 	public String userLogin(Object user) {
 		return rest.getForObject("http://IPAddressForUserAPI/item/username", String.class);
-		//This should return the message from UserAPI which shows if the user has logged in or not
+		//This should return the message sent from UserAPI which shows if the user has logged in or not
 	}
 	
 	public String search(String category, String searchTerm) {
 		return rest.getForObject("http://IPAddressForSearchAPI/"+category+"/"+searchTerm, String.class);
 		//This should return results for things that match the category and searchTerm inputed
-		//The user should be able to choose a category of Name, Location or Car Reg
+		//The user should be able to choose a category of Name, Location or Car Registration
 	}
 	
 	public String getProfile() {
-		return null;
+		return rest.getForObject("http://IPAddressForSearchAPI/profile", String.class);
+		//This should return a profile as an object
+		//Using this object we can select what we want to display on the front end in react application
 	}
 	
-	public String getAssociates() {
-		return null;
+	public String getAssociates(Object profile) {
+		return rest.getForObject("http://IPAddressForSearchAPI/associates/for"+profile, String.class);
+		//This should return an array of associate objects
+		//we can then list this array in the react application
 	}
 	
 	

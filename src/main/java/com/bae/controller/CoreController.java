@@ -42,22 +42,22 @@ public class CoreController {
 	
 	@GetMapping("/profile")
 	public ResponseEntity<Object> getProfile(){
-		return null;
+		return new ResponseEntity<>(service.getProfile(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/associates")
-	public ResponseEntity<Object> getAssociates(){
-		return null;
+	@GetMapping("/associates/for{profile}")
+	public ResponseEntity<Object> getAssociates(@PathVariable String profile){
+		return new ResponseEntity<>(service.getAssociates(profile), HttpStatus.OK);
 	}
 	
 	
 	@RequestMapping("/logout")
-	public String logout() {
+	public ResponseEntity<Object> logout() {
 		return null;
 	}
 	
 	@RequestMapping("/getLoggedInUser")
-	public String getLoggedInUser() {
+	public ResponseEntity<Object> getLoggedInUser() {
 		return null;
 	}
 	
