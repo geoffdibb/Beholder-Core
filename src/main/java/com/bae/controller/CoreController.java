@@ -25,4 +25,24 @@ public class CoreController {
 	public CoreController() {
 	}
 	
+	public String logout() {
+		return null;
+	}
+	
+	public String login() {
+		return null;
+	}
+	
+	public String getLoggedInUser() {
+		return null;
+	}
+	
+	public String getAuditUserAccessLogs() {
+		return null;
+	}
+	
+	public String getSearchLogs() {
+		return null;
+	}
+	
 }
