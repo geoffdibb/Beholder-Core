@@ -18,6 +18,14 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject("http://IPAddressForSearchAPI/"+category+"/"+searchTerm, String.class);
 	}
 	
+	public String getProfile() {
+		return null;
+	}
+	
+	public String getAssociates() {
+		return null;
+	}
+	
 	
 
 	public String getSearchByName() {

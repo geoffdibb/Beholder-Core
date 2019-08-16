@@ -40,8 +40,15 @@ public class CoreController {
 	}
 	
 	
+	@GetMapping("/profile")
+	public ResponseEntity<Object> getProfile(){
+		return null;
+	}
 	
-	
+	@GetMapping("/associates")
+	public ResponseEntity<Object> getAssociates(){
+		return null;
+	}
 	
 	
 	@RequestMapping("/logout")

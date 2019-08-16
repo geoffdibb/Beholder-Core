@@ -11,6 +11,10 @@ public interface CoreService {
 	
 	String search(String category, String searchTerm);
 	
+	String getProfile();
+	
+	String getAssociates();
+	
 	
 	
 	String getSearchByName();
