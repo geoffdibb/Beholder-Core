@@ -1,8 +1,11 @@
 package com.bae.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,13 +29,14 @@ public class CoreController {
 	public CoreController() {
 	}
 	
-	@RequestMapping("/logout")
-	public String logout() {
-		return null;
+	@GetMapping("/userLogin/{username}")
+	public ResponseEntity<Object> userLogin(@PathVariable Object user) {
+		return new ResponseEntity<>(service.getLoggedInUser(user), HttpStatus.OK);
 	}
 	
-	@RequestMapping("/login")
-	public String login() {
+	
+	@RequestMapping("/logout")
+	public String logout() {
 		return null;
 	}
 	
@@ -50,5 +54,7 @@ public class CoreController {
 	public String getSearchLogs() {
 		return null;
 	}
+	
+	
 	
 }

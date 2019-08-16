@@ -9,6 +9,12 @@ public class CoreServiceImpl implements CoreService {
 	
 	@Autowired
 	private RestTemplate rest;
+	
+	public String userLogin(Object user) {
+		return rest.getForObject("http://IPAddress/item/username", String.class);
+	}
+	
+	
 
 	public String getSearchByName() {
 		String searchResult = rest.getForObject("http://", String.class);
@@ -23,11 +29,6 @@ public class CoreServiceImpl implements CoreService {
 
 	public String getSearchByCarReg() {
 		String searchResult = rest.getForObject("http://", String.class);
-		return null;
-	}
-
-	public String getLoggedInUser() {
-		String user = rest.getForObject("http://", String.class);
 		return null;
 	}
 

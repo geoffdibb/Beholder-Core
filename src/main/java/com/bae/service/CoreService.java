@@ -7,13 +7,13 @@ public interface CoreService {
 
 	// Collection<Search> searchCollection();
 	
+	String userLogin(Object user);
+	
 	String getSearchByName();
 
 	String getSearchByLocation();
 
 	String getSearchByCarReg();
-
-	String getLoggedInUser();
 
 	String getAuditUserAccessLogs();
 	
