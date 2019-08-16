@@ -1,5 +1,11 @@
 package com.bae.entity;
 
-public class AuditUserAccessLog {
+import java.util.Date;
 
+public class AuditUserAccessLog {
+	
+	private String username;
+	private Long id;
+	private Date timeStamp;
+	
 }
