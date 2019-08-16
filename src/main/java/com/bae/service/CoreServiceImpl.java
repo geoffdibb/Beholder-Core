@@ -11,7 +11,7 @@ public class CoreServiceImpl implements CoreService {
 	private RestTemplate rest;
 	
 	public String userLogin(Object user) {
-		return rest.getForObject("http://IPAddress/item/username", String.class);
+		return rest.getForObject("http://IPAddressForUserAPI/item/username", String.class);
 	}
 	
 	

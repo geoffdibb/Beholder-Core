@@ -31,7 +31,7 @@ public class CoreController {
 	
 	@GetMapping("/userLogin/{username}")
 	public ResponseEntity<Object> userLogin(@PathVariable Object user) {
-		return new ResponseEntity<>(service.getLoggedInUser(user), HttpStatus.OK);
+		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
 	}
 	
 	
