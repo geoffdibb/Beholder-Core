@@ -12,7 +12,7 @@ public class AuditRequestLog {
 		this.username = username;
 		this.id = id;
 		this.timeStamp = timeStamp;
-	}
+	} 
 
 	public AuditRequestLog() {
 	}
