@@ -26,27 +26,27 @@ public class CoreController {
 	public CoreController() {
 	}
 	
-	@RequestMapping
+	@RequestMapping("/logout")
 	public String logout() {
 		return null;
 	}
 	
-	@RequestMapping
+	@RequestMapping("/login")
 	public String login() {
 		return null;
 	}
 	
-	@RequestMapping
+	@RequestMapping("/getLoggedInUser")
 	public String getLoggedInUser() {
 		return null;
 	}
 	
-	@RequestMapping
+	@RequestMapping("/getAuditUserAccessLogs")
 	public String getAuditUserAccessLogs() {
 		return null;
 	}
 	
-	@RequestMapping
+	@RequestMapping("/getSearchLogs")
 	public String getSearchLogs() {
 		return null;
 	}
