@@ -12,10 +12,12 @@ public class CoreServiceImpl implements CoreService {
 	
 	public String userLogin(Object user) {
 		return rest.getForObject("http://IPAddressForUserAPI/item/username", String.class);
+		//This should return the message from UserAPI which shows if the user has logged in or not
 	}
 	
 	public String search(String category, String searchTerm) {
 		return rest.getForObject("http://IPAddressForSearchAPI/"+category+"/"+searchTerm, String.class);
+		//This should return results for things that match the category and searchTerm inputed
 	}
 	
 	public String getProfile() {
