@@ -19,8 +19,8 @@ public interface CoreService {
 	
 	String getSearchLogs();
 	
-	String sendSearchLog();
+	String sendSearchLog(Object object);
 	
-	String AuditUserAccessLogs();	
+	String sendAuditUserAccessLogs(Object object);	
 	
 }

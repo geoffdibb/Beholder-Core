@@ -41,13 +41,13 @@ public class CoreServiceImpl implements CoreService {
 		return null;
 	}
 
-	public String sendSearchLog() {
-		// TODO Auto-generated method stub
+	public String sendSearchLog(Object object) {
+		String addUserRequest = rest.postForObject("http://localhost:8081/user/addUser/", object, String.class);
 		return null;
 	}
 
-	public String sendAuditUserAccessLogs() {
-		String auditLogs = rest.getForObject("http://", String.class);
+	public String sendAuditUserAccessLogs(Object object) {
+		String addUserRequest = rest.postForObject("http://localhost:8081/user/addUser/", object, String.class);
 		return null;
 	}
 
