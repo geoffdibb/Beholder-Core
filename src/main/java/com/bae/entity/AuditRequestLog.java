@@ -16,7 +16,7 @@ public class AuditRequestLog {
 
 	public AuditRequestLog() {
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}

@@ -1,14 +1,22 @@
 package com.bae.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import com.bae.entity.AuditRequestLog;
+import com.bae.entity.AuditSearchLog;
+import com.bae.entity.AuditUserAccessLog;
 
 @Service
 public class CoreServiceImpl implements CoreService {
 
 	@Autowired
 	private RestTemplate rest;
+
+	@Autowired
+	private JmsTemplate jmsTemplate;
 
 	public String userLogin() {
 		return rest.getForObject("http://UserAPI/username", String.class);
@@ -38,16 +46,19 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject("http://AuditAPI/searchlogs/getSearchLog", String.class);
 	}
 
-	public String sendAuditUserAccessLogs(Object object) {
-		return null;
+	public void sendAuditUserAccessLogs(String username, long id) {
+		AuditUserAccessLog auditUser = new AuditUserAccessLog(username, id);
+		jmsTemplate.convertAndSend("AuditUserAccessQueue", auditUser);
 	}
 
-	public String sendAuditRequestLog() {
-		return null;
+	public void sendAuditRequestLog(String username, long id) {
+		AuditRequestLog audit = new AuditRequestLog(username, id);
+		jmsTemplate.convertAndSend("AuditRequestQueue", audit);
 	}
 
-	public String sendSearchLog(Object object) {
-		return null;
+	public void sendSearchLog(String username, Long id, String searchTerm) {
+		AuditSearchLog searchLog = new AuditSearchLog(username, id, searchTerm);
+		jmsTemplate.convertAndSend("SearchLogQueue", searchLog);
 	}
 
 }

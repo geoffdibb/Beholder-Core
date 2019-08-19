@@ -13,7 +13,7 @@ public class AuditUserAccessLog {
 		this.id = id;
 		this.timeStamp =  new Date();
 	}
-
+ 
 	public AuditUserAccessLog() {
 	}
 
