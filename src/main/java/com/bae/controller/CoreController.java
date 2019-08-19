@@ -49,18 +49,18 @@ public class CoreController {
 		return new ResponseEntity<>(service.getAssociates(profile), HttpStatus.OK);
 	}
 
-	@RequestMapping("/getLoggedInUser")
-	public ResponseEntity<Object> getLoggedInUser() {
+	@RequestMapping("/getAuditRequestLog")
+	public ResponseEntity<Object> getAuditRequestLog() {
 		return null;
 	}
 
-	@RequestMapping("/getAuditUserAccessLogs")
-	public String getAuditUserAccessLogs() {
+	@RequestMapping("/getAuditUserAccessLog")
+	public String getAuditUserAccessLog() {
 		return null;
 	}
 
-	@RequestMapping("/getSearchLogs")
-	public String getSearchLogs() {
+	@RequestMapping("/getSearchLog")
+	public String getSearchLog() {
 		return null;
 	}
 
