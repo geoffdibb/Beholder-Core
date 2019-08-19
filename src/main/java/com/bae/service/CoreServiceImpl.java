@@ -11,15 +11,15 @@ public class CoreServiceImpl implements CoreService {
 	private RestTemplate rest;
 
 	public String userLogin() {
-		return rest.getForObject("http://IPAddressForUserAPI/username", String.class);
+		return rest.getForObject("http://UserAPI/username", String.class);
 	}
 
 	public String search(String category, String searchTerm) {
-		return rest.getForObject("http://IPAddressForSearchAPI/" + category + "/" + searchTerm, String.class);
+		return rest.getForObject("http://SearchAPI/" + category + "/" + searchTerm, String.class);
 	}
 
-	public String getProfile() {
-		return rest.getForObject("http://IPAddressForSearchAPI/profile", String.class);
+	public String getProfile(long id) {
+		return rest.getForObject("http://SearchAPI/profile"+id, String.class);
 	}
 
 	public String getAssociates(Object profile) {

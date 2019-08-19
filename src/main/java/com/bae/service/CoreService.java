@@ -11,7 +11,7 @@ public interface CoreService {
 	
 	String search(String category, String searchTerm);
 	
-	String getProfile();
+	String getProfile(long id);
 	
 	String getAssociates(Object profile);
 	

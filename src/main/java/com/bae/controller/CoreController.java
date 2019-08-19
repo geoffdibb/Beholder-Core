@@ -40,9 +40,9 @@ public class CoreController {
 		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
 	}
 
-	@GetMapping("/profile")
-	public ResponseEntity<Object> getProfile() {
-		return new ResponseEntity<>(service.getProfile(), HttpStatus.OK);
+	@GetMapping("/profile/{id}")
+	public ResponseEntity<Object> getProfile(@PathVariable long id) {
+		return new ResponseEntity<>(service.getProfile(id), HttpStatus.OK);
 	}
 
 	@GetMapping("/associates/for{profile}")
