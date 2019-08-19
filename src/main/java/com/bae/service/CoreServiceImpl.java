@@ -38,13 +38,6 @@ public class CoreServiceImpl implements CoreService {
 	@Value("${url.AuditSearch}")
 	private String AuditSearchURL;
 
-//	url.search=http://SearchAPI:8082/
-//		url.searchProfile=http://Search:8082/profile
-//		url.searchAssociates=http://Search:8082/associates/forProfile
-//		url.AuditRequest=http://AuditAPI:8081/requestLogs/getAuditRequestLog
-//		url.AuditUser=http://AuditAPI:8081/accessLogs/getAuditUserAccessLog
-//		url.AuditSearch=http://AuditAPI:8081/searchLogs/getSearchLogs
-
 	@Autowired
 	public CoreServiceImpl(RestTemplate rest, JmsTemplate jmsTemplate) {
 		this.rest = rest;
