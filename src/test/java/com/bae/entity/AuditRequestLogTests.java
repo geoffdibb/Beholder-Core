@@ -2,6 +2,8 @@ package com.bae.entity;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,40 +14,40 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class AuditRequestLogTests {
 
-	AuditRequestLog account = new AuditRequestLog("name", (long) 1);
+	AuditRequestLog audit = new AuditRequestLog("name", (long) 1);
+	
+	Date time = new Date();
 
 	@Test
 	public void getUsernameTest() {
-		assertEquals("name", account.getUsername());
+		assertEquals("name", audit.getUsername());
 	}
 
 	@Test
 	public void setUsernameTest() {
-		account.setUsername("new name");
-		assertEquals("new name", account.getUsername());
+		audit.setUsername("new name");
+		assertEquals("new name", audit.getUsername());
 	}
 
 	@Test
 	public void getIdTest() {
-		assertEquals((long) 1, account.getId());
+		assertEquals((long) 1, audit.getId());
 	}
 
 	@Test
 	public void setIdTest() {
-		account.setId((long) 2);
-		assertEquals((long) 2, account.getId());
+		audit.setId((long) 2);
+		assertEquals((long) 2, audit.getId());
 	}
 
-	@Ignore
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(null, account.getTimeStamp());
+		assertEquals(time, audit.getTimeStamp());
 	}
 
-	@Ignore
 	@Test
 	public void setTimeStampTest() {
-		account.setTimeStamp(null);
-		assertEquals(null, account.getTimeStamp());
+		audit.setTimeStamp(time);
+		assertEquals(time, audit.getTimeStamp());
 	}
 }

@@ -2,6 +2,8 @@ package com.bae.entity;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,8 @@ public class AuditSearchLogTest {
 
 
 	AuditSearchLog audit = new AuditSearchLog("name", (long) 1, "search");
+	
+	Date time = new Date();
 
 	@Test
 	public void getUsernameTest() {
@@ -37,17 +41,15 @@ public class AuditSearchLogTest {
 		assertEquals((long) 2, audit.getId());
 	}
 
-	@Ignore
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(null, audit.getTimeStamp());
+		assertEquals(time, audit.getTimeStamp());
 	}
 
-	@Ignore
 	@Test
 	public void setTimeStampTest() {
-		audit.setTimeStamp(null);
-		assertEquals(null, audit.getTimeStamp());
+		audit.setTimeStamp(time);
+		assertEquals(time, audit.getTimeStamp());
 	}
 	
 	@Test
