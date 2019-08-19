@@ -5,7 +5,7 @@ import java.util.Date;
 public class AuditSearchLog {
 
 	private String username;
-	private Long id;
+	private long id;
 	private Date timeStamp;
 	private String searchTerm;
 
@@ -27,11 +27,11 @@ public class AuditSearchLog {
 		this.username = username;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
