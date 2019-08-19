@@ -39,4 +39,26 @@ public class CoreServiceImplTests {
 	public void getAssociates() {
 
 	}
+	
+	@Test
+	public void getAuditRequestLogTest() {
+		
+	}
+	
+	@Test
+	public void getAuditUserAccessLogTest() {
+		
+	}
+	
+	@Test
+	public void getSearchLog() {
+		
+	}
+	
+	@Test
+	public void sendAuditUserAccessLogs() {
+		
+	}
+	
+	
 }
