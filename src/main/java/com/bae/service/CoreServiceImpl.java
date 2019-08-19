@@ -35,23 +35,35 @@ public class CoreServiceImpl implements CoreService {
 	
 	
 
-	public String getAuditUserAccessLogs() {
-		String auditLogs = rest.getForObject("http://", String.class);
+	public String getAuditRequestLog() {
+		String auditLog = rest.getForObject("http://", String.class);
 		return null;
 	}
 
-	public String getSearchLogs() {
+	public String getAuditUserAccessLog() {
 		String searchLogs = rest.getForObject("http://", String.class);
 		return null;
 	}
 
-	public String sendSearchLog(Object object) {
+	public String getSearchLog(Object object) {
 		String addUserRequest = rest.postForObject("http://", object, String.class);
 		return null;
 	}
 
 	public String sendAuditUserAccessLogs(Object object) {
 		String addUserRequest = rest.postForObject("http://", object, String.class);
+		return null;
+	}
+
+
+	public String sendAuditRequestLog() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public String sendSearchLog(Object object) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
