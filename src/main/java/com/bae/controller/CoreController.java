@@ -16,18 +16,14 @@ import com.bae.service.CoreService;
 @RequestMapping("/beholder")
 public class CoreController {
 
-	@Autowired
 	private CoreService service;
 
-	@Autowired
 	private JmsTemplate jmsTemplate;
 
+	@Autowired
 	public CoreController(CoreService service, JmsTemplate jmsTemplate) {
 		this.service = service;
 		this.jmsTemplate = jmsTemplate;
-	}
-
-	public CoreController() {
 	}
 
 	@PostMapping("/userLogin")

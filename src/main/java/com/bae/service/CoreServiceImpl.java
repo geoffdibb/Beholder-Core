@@ -12,11 +12,15 @@ import com.bae.entity.AuditUserAccessLog;
 @Service
 public class CoreServiceImpl implements CoreService {
 
-	@Autowired
 	private RestTemplate rest;
 
-	@Autowired
 	private JmsTemplate jmsTemplate;
+	
+	@Autowired
+	public CoreServiceImpl(RestTemplate rest, JmsTemplate jmsTemplate) {
+		this.rest = rest;
+		this.jmsTemplate = jmsTemplate;
+	}
 
 	public String userLogin() {
 		return rest.getForObject("http://UserAPI/username", String.class);
