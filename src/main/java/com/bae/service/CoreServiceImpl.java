@@ -19,40 +19,34 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String getProfile(long id) {
-		return rest.getForObject("http://SearchAPI/profile"+id, String.class);
+		return rest.getForObject("http://SearchAPI/profile" + id, String.class);
 	}
 
-	public String getAssociates(Object profile) {
-		return rest.getForObject("http://IPAddressForSearchAPI/associates/for" + profile, String.class);
+	public String getAssociates(long id) {
+		return rest.getForObject("http://IPAddressForSearchAPI/associates/forProfile" + id, String.class);
 	}
 
 	public String getAuditRequestLog() {
-		String auditLog = rest.getForObject("http://", String.class);
-		return null;
+		return rest.getForObject("http://auditAPI/requestlogs/getAuditRequestLog", String.class);
 	}
 
 	public String getAuditUserAccessLog() {
-		String searchLogs = rest.getForObject("http://", String.class);
-		return null;
+		return rest.getForObject("http://AuditAPI/accesslogs/getAuditUserAccessLog", String.class);
 	}
 
-	public String getSearchLog(Object object) {
-		String addUserRequest = rest.postForObject("http://", object, String.class);
-		return null;
+	public String getSearchLog() {
+		return rest.getForObject("http://AuditAPI/searchlogs/getSearchLog", String.class);
 	}
 
 	public String sendAuditUserAccessLogs(Object object) {
-		String addUserRequest = rest.postForObject("http://", object, String.class);
 		return null;
 	}
 
 	public String sendAuditRequestLog() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String sendSearchLog(Object object) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

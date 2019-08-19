@@ -45,9 +45,9 @@ public class CoreController {
 		return new ResponseEntity<>(service.getProfile(id), HttpStatus.OK);
 	}
 
-	@GetMapping("/associates/for{profile}")
-	public ResponseEntity<Object> getAssociates(@PathVariable String profile) {
-		return new ResponseEntity<>(service.getAssociates(profile), HttpStatus.OK);
+	@GetMapping("/associates/forProfile{id}")
+	public ResponseEntity<Object> getAssociates(@PathVariable long id) {
+		return new ResponseEntity<>(service.getAssociates(id), HttpStatus.OK);
 	}
 
 	@RequestMapping("/getAuditRequestLog")

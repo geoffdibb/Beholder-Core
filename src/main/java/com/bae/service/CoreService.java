@@ -13,14 +13,14 @@ public interface CoreService {
 	
 	String getProfile(long id);
 	
-	String getAssociates(Object profile);
+	String getAssociates(long id);
 	
 	
 	String getAuditRequestLog();
 	
 	String getAuditUserAccessLog();
 	
-	String getSearchLog(Object object);
+	String getSearchLog();
 	
 	
 	String sendAuditRequestLog();
