@@ -20,57 +20,48 @@ public class CoreController {
 
 	@Autowired
 	private JmsTemplate jmsTemplate;
-	
+
 	public CoreController(CoreService service, JmsTemplate jmsTemplate) {
 		this.service = service;
 		this.jmsTemplate = jmsTemplate;
 	}
-	
+
 	public CoreController() {
 	}
-	
+
 	@GetMapping("/userLogin/{username}")
-	public ResponseEntity<Object> userLogin(@PathVariable Object user) {
-		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
+	public ResponseEntity<Object> userLogin(@PathVariable String username) {
+		return new ResponseEntity<>(service.userLogin(username), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/search/{category}/{searchTerm}")
 	public ResponseEntity<Object> search(@PathVariable String category, @PathVariable String searchTerm) {
 		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
 	}
-	
-	
+
 	@GetMapping("/profile")
-	public ResponseEntity<Object> getProfile(){
+	public ResponseEntity<Object> getProfile() {
 		return new ResponseEntity<>(service.getProfile(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/associates/for{profile}")
-	public ResponseEntity<Object> getAssociates(@PathVariable String profile){
+	public ResponseEntity<Object> getAssociates(@PathVariable String profile) {
 		return new ResponseEntity<>(service.getAssociates(profile), HttpStatus.OK);
 	}
-	
-	
-	@RequestMapping("/logout")
-	public ResponseEntity<Object> logout() {
-		return null;
-	}
-	
+
 	@RequestMapping("/getLoggedInUser")
 	public ResponseEntity<Object> getLoggedInUser() {
 		return null;
 	}
-	
+
 	@RequestMapping("/getAuditUserAccessLogs")
 	public String getAuditUserAccessLogs() {
 		return null;
 	}
-	
+
 	@RequestMapping("/getSearchLogs")
 	public String getSearchLogs() {
 		return null;
 	}
-	
-	
-	
+
 }
