@@ -46,12 +46,12 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String sendSearchLog(Object object) {
-		String addUserRequest = rest.postForObject("http://localhost:8081/user/addUser/", object, String.class);
+		String addUserRequest = rest.postForObject("http://", object, String.class);
 		return null;
 	}
 
 	public String sendAuditUserAccessLogs(Object object) {
-		String addUserRequest = rest.postForObject("http://localhost:8081/user/addUser/", object, String.class);
+		String addUserRequest = rest.postForObject("http://", object, String.class);
 		return null;
 	}
 
