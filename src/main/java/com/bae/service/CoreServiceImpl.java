@@ -10,8 +10,8 @@ public class CoreServiceImpl implements CoreService {
 	@Autowired
 	private RestTemplate rest;
 	
-	public String userLogin(String username) {
-		return rest.getForObject("http://IPAddressForUserAPI/item/"+username, String.class);
+	public String userLogin() {
+		return rest.getForObject("http://IPAddressForUserAPI/username", String.class);
 		//This should return the message sent from UserAPI which shows if the user has logged in or not
 	}
 	

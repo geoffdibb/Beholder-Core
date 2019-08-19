@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,9 +30,9 @@ public class CoreController {
 	public CoreController() {
 	}
 
-	@GetMapping("/userLogin/{username}")
-	public ResponseEntity<Object> userLogin(@PathVariable String username) {
-		return new ResponseEntity<>(service.userLogin(username), HttpStatus.OK);
+	@PostMapping("/userLogin")
+	public ResponseEntity<Object> userLogin() {
+		return new ResponseEntity<>(service.userLogin(), HttpStatus.OK);
 	}
 
 	@GetMapping("/search/{category}/{searchTerm}")

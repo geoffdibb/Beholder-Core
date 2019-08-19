@@ -7,7 +7,7 @@ public interface CoreService {
 
 	// Collection<Search> searchCollection();
 	
-	String userLogin(String username);
+	String userLogin();
 	
 	String search(String category, String searchTerm);
 	
