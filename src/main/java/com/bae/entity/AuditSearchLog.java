@@ -9,10 +9,10 @@ public class AuditSearchLog {
 	private Date timeStamp;
 	private String searchTerm;
 
-	public AuditSearchLog(String username, Long id, Date timeStamp, String searchTerm) {
+	public AuditSearchLog(String username, Long id, String searchTerm) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp = timeStamp;
+		this.timeStamp =  new Date();
 		this.searchTerm = searchTerm;
 	}
 

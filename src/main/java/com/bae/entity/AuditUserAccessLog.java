@@ -8,10 +8,10 @@ public class AuditUserAccessLog {
 	private Long id;
 	private Date timeStamp;
 
-	public AuditUserAccessLog(String username, Long id, Date timeStamp) {
+	public AuditUserAccessLog(String username, Long id) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp = timeStamp;
+		this.timeStamp =  new Date();
 	}
 
 	public AuditUserAccessLog() {
