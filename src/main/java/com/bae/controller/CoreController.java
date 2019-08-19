@@ -61,8 +61,8 @@ public class CoreController {
 	}
 
 	@RequestMapping("/getSearchLog")
-	public ResponseEntity<Object> getSearchLog(Object object) {
-		return new ResponseEntity<>(service.getSearchLog(object), HttpStatus.OK);
+	public ResponseEntity<Object> getSearchLog() {
+		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
 	}
 
 }
