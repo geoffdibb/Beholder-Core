@@ -15,11 +15,13 @@ public interface CoreService {
 	
 	String getAssociates(Object profile);
 	
+	
 	String getAuditRequestLog();
 	
 	String getAuditUserAccessLog();
 	
 	String getSearchLog(Object object);
+	
 	
 	String sendAuditRequestLog();
 	

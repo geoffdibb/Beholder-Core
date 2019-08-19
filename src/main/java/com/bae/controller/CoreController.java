@@ -51,17 +51,17 @@ public class CoreController {
 
 	@RequestMapping("/getAuditRequestLog")
 	public ResponseEntity<Object> getAuditRequestLog() {
-		return null;
+		return new ResponseEntity<>(service.getAuditRequestLog(), HttpStatus.OK);
 	}
 
 	@RequestMapping("/getAuditUserAccessLog")
-	public String getAuditUserAccessLog() {
-		return null;
+	public ResponseEntity<Object> getAuditUserAccessLog() {
+		return new ResponseEntity<>(service.getAuditUserAccessLog(), HttpStatus.OK);
 	}
 
 	@RequestMapping("/getSearchLog")
-	public String getSearchLog() {
-		return null;
+	public ResponseEntity<Object> getSearchLog(Object object) {
+		return new ResponseEntity<>(service.getSearchLog(object), HttpStatus.OK);
 	}
 
 }
