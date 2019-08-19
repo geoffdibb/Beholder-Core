@@ -60,5 +60,15 @@ public class CoreServiceImplTests {
 		
 	}
 	
+	@Test
+	public void sendAuditRequestLogTest() {
+		
+	}
+	
+	@Test
+	public void sendSearchLogTest() {
+		
+	}
+	
 	
 }
