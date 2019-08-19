@@ -87,4 +87,20 @@ public class CoreServiceImpl implements CoreService {
 		jmsTemplate.convertAndSend("SearchLogQueue", searchLog);
 	}
 
+	public RestTemplate getRest() {
+		return rest;
+	}
+
+	public void setRest(RestTemplate rest) {
+		this.rest = rest;
+	}
+
+	public JmsTemplate getJmsTemplate() {
+		return jmsTemplate;
+	}
+
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
+	}
+
 }

@@ -61,4 +61,22 @@ public class CoreController {
 		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
 	}
 
+	public CoreService getService() {
+		return service;
+	}
+
+	public void setService(CoreService service) {
+		this.service = service;
+	}
+
+	public JmsTemplate getJmsTemplate() {
+		return jmsTemplate;
+	}
+
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
+	}
+	
+	
+
 }
