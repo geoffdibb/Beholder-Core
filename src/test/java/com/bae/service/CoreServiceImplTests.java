@@ -17,7 +17,7 @@ public class CoreServiceImplTests {
 
 	@InjectMocks
 	CoreServiceImpl service;
-	
+	 
 	@Mock
 	RestTemplate restTemplate;
 

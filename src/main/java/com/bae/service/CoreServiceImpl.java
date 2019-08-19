@@ -16,7 +16,7 @@ public class CoreServiceImpl implements CoreService {
 
 	private JmsTemplate jmsTemplate;
 	
-	@Autowired
+	@Autowired 
 	public CoreServiceImpl(RestTemplate rest, JmsTemplate jmsTemplate) {
 		this.rest = rest;
 		this.jmsTemplate = jmsTemplate;
@@ -35,19 +35,19 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String getAssociates(long id) {
-		return rest.getForObject("http://IPAddressForSearchAPI/associates/forProfile" + id, String.class);
+		return rest.getForObject("http://SearchAPI/associates/forProfile" + id, String.class);
 	}
 
 	public String getAuditRequestLog() {
-		return rest.getForObject("http://auditAPI/requestlogs/getAuditRequestLog", String.class);
+		return rest.getForObject("http://AuditAPI/requestlogs/getAuditRequestLogs", String.class);
 	}
 
 	public String getAuditUserAccessLog() {
-		return rest.getForObject("http://AuditAPI/accesslogs/getAuditUserAccessLog", String.class);
+		return rest.getForObject("http://AuditAPI/accessLogs/getAuditUserAccessLogs", String.class);
 	}
 
 	public String getSearchLog() {
-		return rest.getForObject("http://AuditAPI/searchlogs/getSearchLog", String.class);
+		return rest.getForObject("http://AuditAPI/searchLogs/getSearchLogs", String.class);
 	}
 
 	public void sendAuditUserAccessLogs(String username, long id) {
