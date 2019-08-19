@@ -60,4 +60,5 @@ public class AuditSearchLogTest {
 		audit.setSearchTerm("search2");
 		assertEquals("search2", audit.getSearchTerm());
 	}
+
 }
