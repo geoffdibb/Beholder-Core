@@ -38,7 +38,7 @@ public class CoreController {
 
 	@GetMapping("/profile/{id}")
 	public ResponseEntity<Object> getProfile(@PathVariable long id) {
-		return new ResponseEntity<>(service.getProfile(id), HttpStatus.OK);
+		return new ResponseEntity<>(service.getProfile(id), HttpStatus.OK); 
 	}
 
 	@GetMapping("/associates/forProfile{id}")

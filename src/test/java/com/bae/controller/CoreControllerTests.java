@@ -1,6 +1,7 @@
 package com.bae.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,12 +11,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.service.CoreService;
+import com.bae.util.Constant;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,7 +37,7 @@ public class CoreControllerTests {
 
 	@Test
 	public void userLoginTest() {
-
+	
 	}
 
 	@Test
@@ -44,7 +47,9 @@ public class CoreControllerTests {
 
 	@Test
 	public void getProfileTest() {
-
+		Mockito.when(service.getProfile(3)).thenReturn((Constant.MOCK_PROFILE_OBJECT2));
+		assertEquals((Constant.MOCK_PROFILE_OBJECT), controller.getProfile(3));
+		Mockito.verify(service).getProfile(3);
 	}
 
 	@Test
@@ -54,7 +59,9 @@ public class CoreControllerTests {
 	
 	@Test
 	public void getAudiRequestLogTest() {
-		
+//		Mockito.when(service.getAuditRequestLog()).thenReturn("search result");
+//		assertEquals("search result", controller.getAuditRequestLog();
+//		Mockito.verify(service).getAuditRequestLog();
 	}
 	
 	@Test
@@ -64,15 +71,6 @@ public class CoreControllerTests {
 	
 	@Test
 	public void getSearchLogTest() {
-		
-	}
-	
-	@Test void getServiceTest() {
-		
-	}
-	
-	@Test 
-	public void setServiceTest() {
 		
 	}
 	
