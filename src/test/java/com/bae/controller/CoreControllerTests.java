@@ -15,6 +15,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.service.CoreService;
@@ -29,6 +30,9 @@ public class CoreControllerTests {
 
 	@Mock
 	CoreService service;
+	
+	@Mock
+	JmsTemplate jmsTemplate;
 
 	@Test
 	public void contextLoads() {
@@ -37,53 +41,75 @@ public class CoreControllerTests {
 
 	@Test
 	public void userLoginTest() {
-	
+		Mockito.when(service.userLogin()).thenReturn(Constant.MOCK_USERLOGIN_OBJECT2);
+		assertEquals(Constant.MOCK_USERLOGIN_OBJECT, controller.userLogin());
+		Mockito.verify(service).userLogin();
 	}
 
 	@Test
 	public void searchTest() {
-
+		Mockito.when(service.search("category", "searchTerm")).thenReturn(Constant.MOCK_SEARCH_OBJECT2);
+		assertEquals(Constant.MOCK_SEARCH_OBJECT, controller.search("category", "searchTerm"));
+		Mockito.verify(service).search("category", "searchTerm");
 	}
 
 	@Test
 	public void getProfileTest() {
-		Mockito.when(service.getProfile(3)).thenReturn((Constant.MOCK_PROFILE_OBJECT2));
-		assertEquals((Constant.MOCK_PROFILE_OBJECT), controller.getProfile(3));
+		Mockito.when(service.getProfile(3)).thenReturn(Constant.MOCK_PROFILE_OBJECT2);
+		assertEquals(Constant.MOCK_PROFILE_OBJECT, controller.getProfile(3));
 		Mockito.verify(service).getProfile(3);
 	}
 
 	@Test
 	public void getAssociatesTest() {
-
+		Mockito.when(service.getAssociates(3)).thenReturn(Constant.MOCK_PROFILE_OBJECT2);
+		assertEquals(Constant.MOCK_PROFILE_OBJECT, controller.getAssociates(3));
+		Mockito.verify(service).getAssociates(3);
 	}
 	
 	@Test
-	public void getAudiRequestLogTest() {
-//		Mockito.when(service.getAuditRequestLog()).thenReturn("search result");
-//		assertEquals("search result", controller.getAuditRequestLog();
-//		Mockito.verify(service).getAuditRequestLog();
+	public void getAuditRequestLogTest() {
+		Mockito.when(service.getAuditRequestLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditRequestLog());
+		Mockito.verify(service).getAuditRequestLog();
 	}
 	
 	@Test
 	public void getAuditUserAccessLog() {
-		
+		Mockito.when(service.getAuditUserAccessLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog());
+		Mockito.verify(service).getAuditUserAccessLog();
 	}
 	
 	@Test
 	public void getSearchLogTest() {
-		
-	}
-	
-	@Test 
-	public void getJmsTemplate() {
-		
+		Mockito.when(service.getSearchLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog());
+		Mockito.verify(service).getSearchLog();
 	}
 	
 	@Test
-	public void setJmsTemplate() {
-		
+	public void getServiceTest() {
+		assertEquals(service, controller.getService());
 	}
-
+	
+	@Test
+	public void setServiceTest() {
+		controller.setService(service);
+		assertEquals(service, controller.getService());
+	}
+	
+	@Test
+	public void getJmsTemplateTest() {
+		assertEquals(jmsTemplate, controller.getJmsTemplate());
+	}
+	
+	@Test
+	public void setJmsTemplateTest() {
+		controller.setJmsTemplate(jmsTemplate);;
+		assertEquals(jmsTemplate, controller.getJmsTemplate());
+	}
+	
 	@Test
 	public void okNoBody() {
 		ResponseEntity<Void> responseEntity = ResponseEntity.ok().build();

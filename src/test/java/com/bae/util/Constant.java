@@ -9,7 +9,16 @@ public class Constant {
 //	public static final AuditRequestLog MOCK_AUDITREQUESTLOG_OBJECT2 = new AuditRequestLog("audit", 2);
 //	public static final Optional<AuditRequestLog> MOCK_AUDITREQUESTLOG_OBJECT3 = Optional.of(MOCK_AUDITREQUESTLOG_OBJECT);
 	
+	public static final ResponseEntity<String>MOCK_USERLOGIN_OBJECT = new ResponseEntity<String>("userLogin", HttpStatus.OK);
+	public static final String MOCK_USERLOGIN_OBJECT2 = "userLogin";
+	
+	public static final ResponseEntity<String> MOCK_SEARCH_OBJECT = new ResponseEntity<String>("search", HttpStatus.OK);
+	public static final String MOCK_SEARCH_OBJECT2 = "search";
 	
 	public static final ResponseEntity<String> MOCK_PROFILE_OBJECT = new ResponseEntity<String>("profile", HttpStatus.OK);
 	public static final String MOCK_PROFILE_OBJECT2 = "profile";
+	
+	public static final ResponseEntity<String> MOCK_AUDIT_OBJECT = new ResponseEntity<String>("audit", HttpStatus.OK);
+	public static final String MOCK_AUDIT_OBJECT2 = "audit";
+	
 }
