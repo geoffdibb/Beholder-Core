@@ -22,64 +22,43 @@ public class CoreController {
 
 	private JmsTemplate jmsTemplate;
 
-	@Value("${path.userLogin}")
-	private String userLoginURL;
-	
-	@Value("${path.search}")
-	private String searchURL;
-	
-	@Value("${path.profile}")
-	private String profileURL;
-	
-	@Value("${path.associates}")
-	private String associatesURL;
-	
-	@Value("${path.getAuditRequestLog}")
-	private String getAuditRequestLogURL;
-	
-	@Value("${path.getAuditUserAccessLog}")
-	private String getAuditUserAccessLogURL;
-	
-	@Value("${path.getSearchLog}")
-	private String getSearchLogURL;
-
 	@Autowired
 	public CoreController(CoreService service, JmsTemplate jmsTemplate) {
 		this.service = service;
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	@PostMapping("userLoginURL")
+	@PostMapping("${path.userLogin}")
 	public ResponseEntity<Object> userLogin(@RequestBody Object user) {
 		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
 	}
 
-	@GetMapping("searchURL")
+	@GetMapping("${path.search}")
 	public ResponseEntity<Object> search(@PathVariable String category, @PathVariable String searchTerm) {
 		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
 	}
 
-	@GetMapping("profileURL")
+	@GetMapping("${path.profile}")
 	public ResponseEntity<Object> getProfile(@PathVariable long id) {
 		return new ResponseEntity<>(service.getProfile(id), HttpStatus.OK);
 	}
 
-	@GetMapping("associatesURL")
+	@GetMapping("${path.associates}")
 	public ResponseEntity<Object> getAssociates(@PathVariable long id) {
 		return new ResponseEntity<>(service.getAssociates(id), HttpStatus.OK);
 	}
 
-	@GetMapping("getAuditRequestLogURL")
+	@GetMapping("${path.getAuditRequestLog}")
 	public ResponseEntity<Object> getAuditRequestLog() {
 		return new ResponseEntity<>(service.getAuditRequestLog(), HttpStatus.OK);
 	}
 
-	@GetMapping("getAuditUserAccessLogURL")
+	@GetMapping("${path.getAuditUserAccessLog}")
 	public ResponseEntity<Object> getAuditUserAccessLog() {
 		return new ResponseEntity<>(service.getAuditUserAccessLog(), HttpStatus.OK);
 	}
 
-	@GetMapping("getSearchLogURL")
+	@GetMapping("${path.getSearchLog}")
 	public ResponseEntity<Object> getSearchLog() {
 		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
 	}
