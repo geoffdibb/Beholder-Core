@@ -31,7 +31,61 @@ public class CoreControllerTests {
 	public void contextLoads() {
 		assertThat(controller).isNotNull();
 	}
+
+	@Test
+	public void userLoginTest() {
+
+	}
+
+	@Test
+	public void searchTest() {
+
+	}
+
+	@Test
+	public void getProfileTest() {
+
+	}
+
+	@Test
+	public void getAssociatesTest() {
+
+	}
 	
+	@Test
+	public void getAudiRequestLogTest() {
+		
+	}
+	
+	@Test
+	public void getAuditUserAccessLog() {
+		
+	}
+	
+	@Test
+	public void getSearchLogTest() {
+		
+	}
+	
+	@Test void getServiceTest() {
+		
+	}
+	
+	@Test 
+	public void setServiceTest() {
+		
+	}
+	
+	@Test 
+	public void getJmsTemplate() {
+		
+	}
+	
+	@Test
+	public void setJmsTemplate() {
+		
+	}
+
 	@Test
 	public void okNoBody() {
 		ResponseEntity<Void> responseEntity = ResponseEntity.ok().build();
@@ -91,27 +145,6 @@ public class CoreControllerTests {
 		assertThat(responseEntity).isNotNull();
 		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
 		assertThat(responseEntity.getBody()).isNull();
-	}
-
-
-	@Test
-	public void userLoginTest() {
-
-	}
-
-	@Test
-	public void searchTest() {
-
-	}
-
-	@Test
-	public void getProfileTest() {
-
-	}
-
-	@Test
-	public void getAssociatesTest() {
-
 	}
 
 }

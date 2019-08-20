@@ -46,17 +46,17 @@ public class CoreController {
 		return new ResponseEntity<>(service.getAssociates(id), HttpStatus.OK);
 	}
 
-	@RequestMapping("/getAuditRequestLog")
+	@GetMapping("/getAuditRequestLog")
 	public ResponseEntity<Object> getAuditRequestLog() {
 		return new ResponseEntity<>(service.getAuditRequestLog(), HttpStatus.OK);
 	}
 
-	@RequestMapping("/getAuditUserAccessLog")
+	@GetMapping("/getAuditUserAccessLog")
 	public ResponseEntity<Object> getAuditUserAccessLog() {
 		return new ResponseEntity<>(service.getAuditUserAccessLog(), HttpStatus.OK);
 	}
 
-	@RequestMapping("/getSearchLog")
+	@GetMapping("/getSearchLog")
 	public ResponseEntity<Object> getSearchLog() {
 		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
 	}
