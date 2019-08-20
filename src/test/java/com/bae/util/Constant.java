@@ -1,7 +1,12 @@
 package com.bae.util;
 
+import java.util.Date;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.bae.entity.AuditRequestLog;
+import com.bae.entity.AuditSearchLog;
 
 public class Constant {
 	
@@ -16,5 +21,11 @@ public class Constant {
 	
 	public static final ResponseEntity<String> MOCK_AUDIT_OBJECT = new ResponseEntity<String>("audit", HttpStatus.OK);
 	public static final String MOCK_AUDIT_OBJECT2 = "audit";
+	
+	public static final AuditRequestLog audit = new AuditRequestLog("name", (long) 1);
+	
+	public static final AuditSearchLog auditSearch = new AuditSearchLog("name", (long) 1, "search");
+	
+	public static final Date time = new Date();
 	
 }
