@@ -34,7 +34,7 @@ public class CoreServiceImpl implements CoreService {
 
 	@Value("${url.AuditUser}")
 	private String auditUserURL;
-	
+
 	@Value("${url.AuditSearch}")
 	private String auditSearchURL;
 
@@ -72,19 +72,22 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject(auditSearchURL, String.class);
 	}
 
-	public void sendAuditUserAccessLogs(String username, long id) {
+	public String sendAuditUserAccessLogs(String username, long id) {
 		AuditUserAccessLog auditUser = new AuditUserAccessLog(username, id);
 		jmsTemplate.convertAndSend("AuditUserAccessQueue", auditUser);
+		return "Audit user logs sent";
 	}
 
-	public void sendAuditRequestLog(String username, long id) {
+	public String sendAuditRequestLog(String username, long id) {
 		AuditRequestLog audit = new AuditRequestLog(username, id);
 		jmsTemplate.convertAndSend("AuditRequestQueue", audit);
+		return "Audit request logs sent";
 	}
 
-	public void sendSearchLog(String username, Long id, String searchTerm) {
+	public String sendSearchLog(String username, Long id, String searchTerm) {
 		AuditSearchLog searchLog = new AuditSearchLog(username, id, searchTerm);
 		jmsTemplate.convertAndSend("SearchLogQueue", searchLog);
+		return "Audit search logs sent";
 	}
 
 	public RestTemplate getRest() {

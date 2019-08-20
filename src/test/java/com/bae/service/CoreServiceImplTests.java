@@ -71,9 +71,11 @@ public class CoreServiceImplTests {
 
 	@Test
 	public void searchTest() {
-		Mockito.when(rest.getForObject(searchURL + Constant.MOCK_CATEGORY_OBJECT + "/" + Constant.MOCK_SEARCHTERM_OBJECT, String.class))
+		Mockito.when(rest.getForObject(
+				searchURL + Constant.MOCK_CATEGORY_OBJECT + "/" + Constant.MOCK_SEARCHTERM_OBJECT, String.class))
 				.thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
-		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT));
+		assertEquals(Constant.MOCK_SEARCH_OBJECT3,
+				service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT));
 	}
 
 	@Test
@@ -111,38 +113,39 @@ public class CoreServiceImplTests {
 		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog());
 	}
 
-//	@Test
-//	public void sendAuditUserAccessLogs() {
-//		Mockito.when(jmsTemplate.convertAndSend("AuditUserAccessQueue", Constant.MOCK_AUDITLOG_OBJECT)).thenReturn();
-//	}
-//
-//	@Test
-//	public void sendAuditRequestLogTest() {
-//
-//	}
-//
-//	@Test
-//	public void sendSearchLogTest() {
-//
-//	}
-	
-	
+	@Test
+	public void sendAuditUserAccessLogs() {
+		Mockito.when(jmsTemplate.convertAndSend("SearchLogQueue", Constant.MOCK_AUDITLOG_OBJECT))
+				.thenReturn(Constant.MOCK_AUDITLOG_OBJECT.toString());
+		assertEquals(Constant.MOCK_AUDITLOG_OBJECT, service.sendAuditUserAccessLogs("name", 1));
+	}
+
+	@Test
+	public void sendAuditRequestLogTest() {
+
+	}
+
+	@Test
+	public void sendSearchLogTest() {
+
+	}
+
 	@Test
 	public void getRestTemplateTest() {
 		assertEquals(rest, service.getRest());
 	}
-	
+
 	@Test
 	public void setRestTemplateTest() {
 		service.setRest(rest);
 		assertEquals(rest, service.getRest());
 	}
-	
+
 	@Test
 	public void getJmsTemplateTest() {
 		assertEquals(jmsTemplate, service.getJmsTemplate());
 	}
-	
+
 	@Test
 	public void setJmsTemplateTest() {
 		service.setJmsTemplate(jmsTemplate);
