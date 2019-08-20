@@ -24,6 +24,7 @@ public class Constant {
 	public static final String MOCK_AUDIT_OBJECT2 = "audit";
 	
 	public static final AuditRequestLog MOCK_AUDITLOG_OBJECT = new AuditRequestLog("name", (long) 1);
+	public static final AuditRequestLog MOCK_AUDITLOG_OBJECT2 = new AuditRequestLog("name", (long) 1);
 	
 	public static final AuditSearchLog MOCK_AUDITSEARCH_OBJECT = new AuditSearchLog("name", (long) 1, "search");
 	public static final AuditSearchLog MOCK_AUDITSEARCH_OBJECT2 = new AuditSearchLog("name", (long) 1, "search");
@@ -32,5 +33,5 @@ public class Constant {
 	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name", (long) 1);
 	
 	public static final Date MOCK_TIME_OBJECT = new Date();
-	
+	 
 }

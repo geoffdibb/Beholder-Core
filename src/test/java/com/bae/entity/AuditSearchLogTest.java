@@ -40,13 +40,13 @@ public class AuditSearchLogTest {
 
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT.getTimeStamp());
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITUSER_OBJECT.getTimeStamp());
 	}
 
 	@Test
 	public void setTimeStampTest() {
-		Constant.MOCK_AUDITSEARCH_OBJECT.setTimeStamp(Constant.MOCK_TIME_OBJECT);
-		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT.getTimeStamp());
+		Constant.MOCK_AUDITSEARCH_OBJECT2.setTimeStamp(Constant.MOCK_TIME_OBJECT);
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT2.getTimeStamp());
 	}
 	
 	@Test

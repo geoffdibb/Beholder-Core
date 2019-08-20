@@ -34,18 +34,18 @@ public class AuditRequestLogTests {
 
 	@Test
 	public void setIdTest() {
-		Constant.MOCK_AUDITLOG_OBJECT.setId((long) 2);
-		assertEquals((long) 2, Constant.MOCK_AUDITLOG_OBJECT.getId());
+		Constant.MOCK_AUDITLOG_OBJECT2.setId((long) 2);
+		assertEquals((long) 2, Constant.MOCK_AUDITLOG_OBJECT2.getId());
 	}
 
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITLOG_OBJECT.getTimeStamp());
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITUSER_OBJECT.getTimeStamp());
 	}
 
 	@Test
 	public void setTimeStampTest() {
-		Constant.MOCK_AUDITLOG_OBJECT.setTimeStamp(Constant.MOCK_TIME_OBJECT);
-		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITLOG_OBJECT.getTimeStamp());
+		Constant.MOCK_AUDITLOG_OBJECT2.setTimeStamp(Constant.MOCK_TIME_OBJECT);
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITLOG_OBJECT2.getTimeStamp());
 	}
 }
