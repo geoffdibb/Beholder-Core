@@ -4,10 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public class Constant {
-
-//	public static final AuditRequestLog MOCK_AUDITREQUESTLOG_OBJECT = new AuditRequestLog("audit", 1);
-//	public static final AuditRequestLog MOCK_AUDITREQUESTLOG_OBJECT2 = new AuditRequestLog("audit", 2);
-//	public static final Optional<AuditRequestLog> MOCK_AUDITREQUESTLOG_OBJECT3 = Optional.of(MOCK_AUDITREQUESTLOG_OBJECT);
 	
 	public static final ResponseEntity<String>MOCK_USERLOGIN_OBJECT = new ResponseEntity<String>("userLogin", HttpStatus.OK);
 	public static final String MOCK_USERLOGIN_OBJECT2 = "userLogin";
