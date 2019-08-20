@@ -66,7 +66,7 @@ public class CoreServiceImplTests {
 	public void userLoginTest() {
 		Mockito.when(rest.getForObject(userLoginURL, String.class))
 				.thenReturn(Constant.MOCK_USERLOGIN_OBJECT.toString());
-		assertEquals(Constant.MOCK_USERLOGIN_OBJECT3, service.userLogin());
+		assertEquals(Constant.MOCK_USERLOGIN_OBJECT3, service.userLogin(Constant.MOCK_USER_OBJECT));
 	}
 
 	@Test
