@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bae.entity.User;
 import com.bae.service.CoreService;
 
 @RestController
@@ -28,7 +29,7 @@ public class CoreController {
 	}
 
 	@PostMapping("${path.userLogin}")
-	public ResponseEntity<Object> userLogin(@RequestBody Object user) {
+	public ResponseEntity<Object> userLogin(@RequestBody User user) {
 		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
 	}
 

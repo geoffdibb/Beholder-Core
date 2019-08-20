@@ -2,10 +2,12 @@ package com.bae.service;
 
 import org.springframework.stereotype.Service;
 
+import com.bae.entity.User;
+
 @Service
 public interface CoreService {
 
-	String userLogin(Object user);
+	String userLogin(User user);
 
 	String search(String category, String searchTerm);
 

@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import com.bae.entity.AuditRequestLog;
 import com.bae.entity.AuditSearchLog;
 import com.bae.entity.AuditUserAccessLog;
+import com.bae.entity.User;
 
 @Service
 public class CoreServiceImpl implements CoreService {
@@ -44,7 +45,8 @@ public class CoreServiceImpl implements CoreService {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	public String userLogin(Object user) {
+	public String userLogin(User user) {
+		sendAuditUserAccessLogs(user.getUsername(), user.getId());
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
