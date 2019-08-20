@@ -41,9 +41,9 @@ public class CoreControllerTests {
 
 	@Test
 	public void userLoginTest() {
-		Mockito.when(service.userLogin()).thenReturn(Constant.MOCK_USERLOGIN_OBJECT2);
-		assertEquals(Constant.MOCK_USERLOGIN_OBJECT, controller.userLogin());
-		Mockito.verify(service).userLogin();
+		Mockito.when(service.userLogin(Constant.MOCK_USER_OBJECT)).thenReturn(Constant.MOCK_USERLOGIN_OBJECT2);
+		assertEquals(Constant.MOCK_USERLOGIN_OBJECT, controller.userLogin(Constant.MOCK_USER_OBJECT));
+		Mockito.verify(service).userLogin(Constant.MOCK_USER_OBJECT);
 	}
 
 	@Test
