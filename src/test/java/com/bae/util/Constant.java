@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.bae.entity.AuditRequestLog;
 import com.bae.entity.AuditSearchLog;
+import com.bae.entity.AuditUserAccessLog;
 
 public class Constant {
 	
@@ -22,10 +23,14 @@ public class Constant {
 	public static final ResponseEntity<String> MOCK_AUDIT_OBJECT = new ResponseEntity<String>("audit", HttpStatus.OK);
 	public static final String MOCK_AUDIT_OBJECT2 = "audit";
 	
-	public static final AuditRequestLog audit = new AuditRequestLog("name", (long) 1);
+	public static final AuditRequestLog MOCK_AUDITLOG_OBJECT = new AuditRequestLog("name", (long) 1);
 	
-	public static final AuditSearchLog auditSearch = new AuditSearchLog("name", (long) 1, "search");
+	public static final AuditSearchLog MOCK_AUDITSEARCH_OBJECT = new AuditSearchLog("name", (long) 1, "search");
+	public static final AuditSearchLog MOCK_AUDITSEARCH_OBJECT2 = new AuditSearchLog("name", (long) 1, "search");
 	
-	public static final Date time = new Date();
+	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT = new AuditUserAccessLog("name", (long) 1);
+	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name", (long) 1);
+	
+	public static final Date MOCK_TIME_OBJECT = new Date();
 	
 }

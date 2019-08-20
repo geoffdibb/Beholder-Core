@@ -16,53 +16,48 @@ import com.bae.util.Constant;
 @SpringBootTest
 public class AuditSearchLogTest {
 
-
-	AuditSearchLog auditSearch = new AuditSearchLog("name", (long) 1, "search");
-	
-	Date time = new Date();
-
 	@Test
 	public void getUsernameTest() {
-		assertEquals("name", Constant.auditSearch.getUsername());
+		assertEquals("name", Constant.MOCK_AUDITSEARCH_OBJECT.getUsername());
 	}
 
 	@Test
 	public void setUsernameTest() {
-		Constant.auditSearch.setUsername("new name");
-		assertEquals("new name", Constant.auditSearch.getUsername());
+		Constant.MOCK_AUDITSEARCH_OBJECT.setUsername("new name");
+		assertEquals("new name", Constant.MOCK_AUDITSEARCH_OBJECT.getUsername());
 	}
 
 	@Test
 	public void getIdTest() {
-		assertEquals((long) 1, Constant.auditSearch.getId());
+		assertEquals((long) 1, Constant.MOCK_AUDITSEARCH_OBJECT.getId());
 	}
 
-//	@Test
-//	public void setIdTest() {
-//		Constant.auditSearch.setId((long) 2);
-//		assertEquals((long) 2, Constant.auditSearch.getId());
-//	}
+	@Test
+	public void setIdTest() {
+		Constant.MOCK_AUDITSEARCH_OBJECT2.setId((long) 2);
+		assertEquals((long) 2, Constant.MOCK_AUDITSEARCH_OBJECT2.getId());
+	}
 
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(Constant.time, Constant.auditSearch.getTimeStamp());
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT.getTimeStamp());
 	}
 
 	@Test
 	public void setTimeStampTest() {
-		Constant.auditSearch.setTimeStamp(Constant.time);
-		assertEquals(Constant.time, Constant.auditSearch.getTimeStamp());
+		Constant.MOCK_AUDITSEARCH_OBJECT.setTimeStamp(Constant.MOCK_TIME_OBJECT);
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT.getTimeStamp());
 	}
 	
 	@Test
 	public void getSearchTermTest() {
-		assertEquals("search", Constant.auditSearch.getSearchTerm());
+		assertEquals("search", Constant.MOCK_AUDITSEARCH_OBJECT.getSearchTerm());
 	}
 	
 	@Test
 	public void setSearchTermTest() {
-		Constant.auditSearch.setSearchTerm("search2");
-		assertEquals("search2", Constant.auditSearch.getSearchTerm());
+		Constant.MOCK_AUDITSEARCH_OBJECT2.setSearchTerm("search2");
+		assertEquals("search2", Constant.MOCK_AUDITSEARCH_OBJECT2.getSearchTerm());
 	}
 
 }

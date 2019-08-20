@@ -18,34 +18,34 @@ public class AuditRequestLogTests {
 
 	@Test
 	public void getUsernameTest() {
-		assertEquals("name", Constant.audit.getUsername());
+		assertEquals("name", Constant.MOCK_AUDITLOG_OBJECT.getUsername());
 	}
 
 	@Test
 	public void setUsernameTest() {
-		Constant.audit.setUsername("new name");
-		assertEquals("new name", Constant.audit.getUsername());
+		Constant.MOCK_AUDITLOG_OBJECT.setUsername("new name");
+		assertEquals("new name", Constant.MOCK_AUDITLOG_OBJECT.getUsername());
 	}
 
 	@Test
 	public void getIdTest() {
-		assertEquals((long) 1, Constant.audit.getId());
+		assertEquals((long) 1, Constant.MOCK_AUDITLOG_OBJECT.getId());
 	}
 
 	@Test
 	public void setIdTest() {
-		Constant.audit.setId((long) 2);
-		assertEquals((long) 2, Constant.audit.getId());
+		Constant.MOCK_AUDITLOG_OBJECT.setId((long) 2);
+		assertEquals((long) 2, Constant.MOCK_AUDITLOG_OBJECT.getId());
 	}
 
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(Constant.time, Constant.audit.getTimeStamp());
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITLOG_OBJECT.getTimeStamp());
 	}
 
 	@Test
 	public void setTimeStampTest() {
-		Constant.audit.setTimeStamp(Constant.time);
-		assertEquals(Constant.time, Constant.audit.getTimeStamp());
+		Constant.MOCK_AUDITLOG_OBJECT.setTimeStamp(Constant.MOCK_TIME_OBJECT);
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITLOG_OBJECT.getTimeStamp());
 	}
 }

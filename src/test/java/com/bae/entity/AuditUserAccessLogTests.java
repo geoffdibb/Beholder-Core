@@ -10,45 +10,43 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.util.Constant;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AuditUserAccessLogTests {
 
-	AuditUserAccessLog audit = new AuditUserAccessLog("name", (long) 1);
-
-	Date time = new Date();
-
 	@Test
 	public void getUsernameTest() {
-		assertEquals("name", audit.getUsername());
+		assertEquals("name", Constant.MOCK_AUDITUSER_OBJECT.getUsername());
 	}
 
 	@Test
 	public void setUsernameTest() {
-		audit.setUsername("new name");
-		assertEquals("new name", audit.getUsername());
+		Constant.MOCK_AUDITUSER_OBJECT2.setUsername("new name");
+		assertEquals("new name", Constant.MOCK_AUDITUSER_OBJECT2.getUsername());
 	}
 
 	@Test
 	public void getIdTest() {
-		assertEquals((long) 1, audit.getId());
+		assertEquals((long) 1, Constant.MOCK_AUDITUSER_OBJECT.getId());
 	}
 
 	@Test
 	public void setIdTest() {
-		audit.setId((long) 2);
-		assertEquals((long) 2, audit.getId());
+		Constant.MOCK_AUDITUSER_OBJECT2.setId((long) 2);
+		assertEquals((long) 2, Constant.MOCK_AUDITUSER_OBJECT2.getId());
 	}
 
 	@Test
 	public void getTimeStampTest() {
-		assertEquals(time, audit.getTimeStamp());
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITUSER_OBJECT.getTimeStamp());
 	}
 
 	@Test
 	public void setTimeStampTest() {
-		audit.setTimeStamp(time);
-		assertEquals(time, audit.getTimeStamp());
+		Constant.MOCK_AUDITUSER_OBJECT2.setTimeStamp(Constant.MOCK_TIME_OBJECT);
+		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITUSER_OBJECT2.getTimeStamp());
 	}
 
 }
