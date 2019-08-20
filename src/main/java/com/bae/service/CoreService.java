@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CoreService {
 
-	String userLogin();
+	String userLogin(Object user);
 
 	String search(String category, String searchTerm);
 

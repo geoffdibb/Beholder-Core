@@ -44,8 +44,8 @@ public class CoreServiceImpl implements CoreService {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	public String userLogin() {
-		return rest.getForObject(userLoginURL, String.class);
+	public String userLogin(Object user) {
+		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
 	public String search(String category, String searchTerm) {
