@@ -106,7 +106,7 @@ public class CoreControllerTests {
 	
 	@Test
 	public void setJmsTemplateTest() {
-		controller.setJmsTemplate(jmsTemplate);;
+		controller.setJmsTemplate(jmsTemplate);
 		assertEquals(jmsTemplate, controller.getJmsTemplate());
 	}
 	
