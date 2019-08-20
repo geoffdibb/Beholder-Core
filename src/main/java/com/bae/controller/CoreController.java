@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bae.service.CoreService;
 
 @RestController
-@RequestMapping("${path.controller=/beholder}")
+@RequestMapping("${path.controller}")
 public class CoreController {
 
 	private CoreService service;
