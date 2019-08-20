@@ -30,13 +30,13 @@ public class CoreServiceImpl implements CoreService {
 	private String searchAssociatesURL;
 
 	@Value("${url.AuditRequest}")
-	private String AuditRequestURL;
+	private String auditRequestURL;
 
 	@Value("${url.AuditUser}")
-	private String AuditUserURL;
+	private String auditUserURL;
 	
 	@Value("${url.AuditSearch}")
-	private String AuditSearchURL;
+	private String auditSearchURL;
 
 	@Autowired
 	public CoreServiceImpl(RestTemplate rest, JmsTemplate jmsTemplate) {
@@ -61,15 +61,15 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String getAuditRequestLog() {
-		return rest.getForObject(AuditRequestURL, String.class);
+		return rest.getForObject(auditRequestURL, String.class);
 	}
 
 	public String getAuditUserAccessLog() {
-		return rest.getForObject(AuditUserURL, String.class);
+		return rest.getForObject(auditUserURL, String.class);
 	}
 
 	public String getSearchLog() {
-		return rest.getForObject(AuditSearchURL, String.class);
+		return rest.getForObject(auditSearchURL, String.class);
 	}
 
 	public void sendAuditUserAccessLogs(String username, long id) {

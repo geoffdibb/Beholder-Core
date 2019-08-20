@@ -2,10 +2,6 @@ package com.bae.service;
 
 import org.springframework.stereotype.Service;
 
-import com.bae.entity.AuditRequestLog;
-import com.bae.entity.AuditSearchLog;
-import com.bae.entity.AuditUserAccessLog;
-
 @Service
 public interface CoreService {
 
