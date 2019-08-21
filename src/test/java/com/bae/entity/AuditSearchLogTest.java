@@ -48,12 +48,12 @@ public class AuditSearchLogTest {
 		Constant.MOCK_AUDITSEARCH_OBJECT2.setTimeStamp(Constant.MOCK_TIME_OBJECT);
 		assertEquals(Constant.MOCK_TIME_OBJECT, Constant.MOCK_AUDITSEARCH_OBJECT2.getTimeStamp());
 	}
-	
+
 	@Test
 	public void getSearchTermTest() {
 		assertEquals("search", Constant.MOCK_AUDITSEARCH_OBJECT.getSearchTerm());
 	}
-	
+
 	@Test
 	public void setSearchTermTest() {
 		Constant.MOCK_AUDITSEARCH_OBJECT2.setSearchTerm("search2");

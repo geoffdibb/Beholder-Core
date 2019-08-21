@@ -11,9 +11,9 @@ public class AuditUserAccessLog {
 	public AuditUserAccessLog(String username, long id) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp =  new Date();
+		this.timeStamp = new Date();
 	}
- 
+
 	public AuditUserAccessLog() {
 	}
 

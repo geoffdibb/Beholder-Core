@@ -11,12 +11,12 @@ public class AuditRequestLog {
 	public AuditRequestLog(String username, long id) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp =  new Date();
-	} 
+		this.timeStamp = new Date();
+	}
 
 	public AuditRequestLog() {
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}

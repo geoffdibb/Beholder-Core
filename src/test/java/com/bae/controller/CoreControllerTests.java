@@ -30,7 +30,7 @@ public class CoreControllerTests {
 
 	@Mock
 	CoreService service;
-	
+
 	@Mock
 	JmsTemplate jmsTemplate;
 
@@ -66,50 +66,50 @@ public class CoreControllerTests {
 		assertEquals(Constant.MOCK_PROFILE_OBJECT, controller.getAssociates(3));
 		Mockito.verify(service).getAssociates(3);
 	}
-	
+
 	@Test
 	public void getAuditRequestLogTest() {
 		Mockito.when(service.getAuditRequestLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
 		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditRequestLog());
 		Mockito.verify(service).getAuditRequestLog();
 	}
-	
+
 	@Test
 	public void getAuditUserAccessLog() {
 		Mockito.when(service.getAuditUserAccessLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
 		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog());
 		Mockito.verify(service).getAuditUserAccessLog();
 	}
-	
+
 	@Test
 	public void getSearchLogTest() {
 		Mockito.when(service.getSearchLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
 		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog());
 		Mockito.verify(service).getSearchLog();
 	}
-	
+
 	@Test
 	public void getServiceTest() {
 		assertEquals(service, controller.getService());
 	}
-	
+
 	@Test
 	public void setServiceTest() {
 		controller.setService(service);
 		assertEquals(service, controller.getService());
 	}
-	
+
 	@Test
 	public void getJmsTemplateTest() {
 		assertEquals(jmsTemplate, controller.getJmsTemplate());
 	}
-	
+
 	@Test
 	public void setJmsTemplateTest() {
 		controller.setJmsTemplate(jmsTemplate);
 		assertEquals(jmsTemplate, controller.getJmsTemplate());
 	}
-	
+
 	@Test
 	public void okNoBody() {
 		ResponseEntity<Void> responseEntity = ResponseEntity.ok().build();

@@ -12,7 +12,7 @@ public class AuditSearchLog {
 	public AuditSearchLog(String username, Long id, String searchTerm) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp =  new Date();
+		this.timeStamp = new Date();
 		this.searchTerm = searchTerm;
 	}
 
