@@ -49,7 +49,7 @@ public class CoreServiceImpl implements CoreService {
 	public String userLogin(Object user) {
 		ObjectMapper mapper = new ObjectMapper();
 		User userToSend = mapper.convertValue(user, User.class);
-		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
+		sendAuditUserAccessLogs(userToSend.getUsername());
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
@@ -80,8 +80,8 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject(auditSearchURL, String.class);
 	}
 
-	public String sendAuditUserAccessLogs(String username, long id) {
-		AuditUserAccessLog auditUser = new AuditUserAccessLog(username, id);
+	public String sendAuditUserAccessLogs(String username) {
+		AuditUserAccessLog auditUser = new AuditUserAccessLog(username);
 		jmsTemplate.convertAndSend("AuditUserAccessQueue", auditUser);
 		return "Audit user logs sent";
 	}

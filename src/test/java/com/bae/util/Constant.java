@@ -38,8 +38,8 @@ public class Constant {
 	public static final AuditSearchLog MOCK_AUDITSEARCH_OBJECT2 = new AuditSearchLog("name", "category", "search");
 	public static final String MOCK_AUDITSEARCH_OBJECT3 = null;
 
-	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT = new AuditUserAccessLog("name", (long) 1);
-	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name", (long) 1);
+	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT = new AuditUserAccessLog("name");
+	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name");
 	public static final String MOCK_AUDITUSER_OBJECT3 = null;
 	public static final String MOCK_AUDITUSER_OBJECT4 = "Audit user logs sent";
 	public static final String MOCK_USERNAME = "user1";

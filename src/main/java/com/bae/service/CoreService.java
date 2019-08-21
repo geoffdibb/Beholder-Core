@@ -21,7 +21,7 @@ public interface CoreService {
 
 	String sendAuditRequestLog(String username);
 
-	String sendAuditUserAccessLogs(String username, long id);
+	String sendAuditUserAccessLogs(String username);
 
 	String sendSearchLog(String username, String category, String searchTerm);
 }

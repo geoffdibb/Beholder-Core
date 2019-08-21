@@ -2,9 +2,6 @@ package com.bae.entity;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Date;
-
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,17 +22,6 @@ public class AuditUserAccessLogTests {
 	public void setUsernameTest() {
 		Constant.MOCK_AUDITUSER_OBJECT2.setUsername("new name");
 		assertEquals("new name", Constant.MOCK_AUDITUSER_OBJECT2.getUsername());
-	}
-
-	@Test
-	public void getIdTest() {
-		assertEquals((long) 1, Constant.MOCK_AUDITUSER_OBJECT.getId());
-	}
-
-	@Test
-	public void setIdTest() {
-		Constant.MOCK_AUDITUSER_OBJECT2.setId((long) 2);
-		assertEquals((long) 2, Constant.MOCK_AUDITUSER_OBJECT2.getId());
 	}
 
 	@Test
