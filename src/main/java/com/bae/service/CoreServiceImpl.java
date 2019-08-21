@@ -45,8 +45,8 @@ public class CoreServiceImpl implements CoreService {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	public String userLogin(User user) {
-		sendAuditUserAccessLogs(user.getUsername(), user.getId());
+	public String userLogin(Object user) {
+//		sendAuditUserAccessLogs(user);
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 

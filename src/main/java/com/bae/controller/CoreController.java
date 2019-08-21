@@ -29,7 +29,7 @@ public class CoreController {
 	}
 
 	@PostMapping("${path.userLogin}")
-	public ResponseEntity<Object> userLogin(@RequestBody User user) {
+	public ResponseEntity<Object> userLogin(@RequestBody Object user) {
 		return new ResponseEntity<>(service.userLogin(user), HttpStatus.OK);
 	}
 

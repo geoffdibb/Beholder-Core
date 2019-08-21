@@ -7,7 +7,7 @@ import com.bae.entity.User;
 @Service
 public interface CoreService {
 
-	String userLogin(User user);
+	String userLogin(Object user);
 
 	String search(String category, String searchTerm);
 
