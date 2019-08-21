@@ -48,9 +48,9 @@ public class CoreControllerTests {
 
 	@Test
 	public void searchTest() {
-		Mockito.when(service.search("category", "searchTerm")).thenReturn(Constant.MOCK_SEARCH_OBJECT2);
-		assertEquals(Constant.MOCK_SEARCH_OBJECT, controller.search("category", "searchTerm"));
-		Mockito.verify(service).search("category", "searchTerm");
+		Mockito.when(service.search("category", "searchTerm", "user1")).thenReturn(Constant.MOCK_SEARCH_OBJECT2);
+		assertEquals(Constant.MOCK_SEARCH_OBJECT, controller.search("category", "searchTerm", "user1"));
+		Mockito.verify(service).search("category", "searchTerm", "user1");
 	}
 
 	@Test
@@ -76,16 +76,16 @@ public class CoreControllerTests {
 
 	@Test
 	public void getAuditUserAccessLog() {
-		Mockito.when(service.getAuditUserAccessLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
-		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog());
-		Mockito.verify(service).getAuditUserAccessLog();
+		Mockito.when(service.getAuditUserAccessLog(Constant.MOCK_USERNAME)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog(Constant.MOCK_USERNAME));
+		Mockito.verify(service).getAuditUserAccessLog(Constant.MOCK_USERNAME);
 	}
 
 	@Test
 	public void getSearchLogTest() {
-		Mockito.when(service.getSearchLog()).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
-		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog());
-		Mockito.verify(service).getSearchLog();
+		Mockito.when(service.getSearchLog(Constant.MOCK_USERNAME)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog(Constant.MOCK_USERNAME));
+		Mockito.verify(service).getSearchLog(Constant.MOCK_USERNAME);
 	}
 
 	@Test
