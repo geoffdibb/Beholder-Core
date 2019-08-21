@@ -46,8 +46,7 @@ public class Constant {
 	public static final String MOCK_SEARCHTERM_OBJECT = "searchTerm";
 	public static final long MOCK_ID_OBJECT = 1;
 	
-	public static final String MOCK_USER_OBJECT = "user";
+	public static final User MOCK_USER_OBJECT = new User("name", (long) 1);
 	public static final User MOCK_USER_OBJECT2 = new User("name", (long) 1);
-	public static final User MOCK_USER_OBJECT3 = new User("name", (long) 1);
 	 
 }
