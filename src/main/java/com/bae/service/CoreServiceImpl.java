@@ -10,6 +10,7 @@ import com.bae.entity.AuditRequestLog;
 import com.bae.entity.AuditSearchLog;
 import com.bae.entity.AuditUserAccessLog;
 import com.bae.entity.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class CoreServiceImpl implements CoreService {
@@ -46,14 +47,10 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String userLogin(Object user) {
-		
-		 if (user instanceof User) {
 
-		        User entity = (User) user;
-				sendAuditUserAccessLogs(entity.getUsername(), entity.getId());
-		    }
-//		User userToSend = (User) user;
-//		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
+		ObjectMapper mapper = new ObjectMapper();
+		User userToSend = mapper.convertValue(user, User.class);
+		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
