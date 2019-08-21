@@ -53,7 +53,8 @@ public class CoreServiceImpl implements CoreService {
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
-	public String search(String category, String searchTerm) {
+	public String search(String username, String category, String searchTerm) {
+		sendSearchLog(username, category, searchTerm);
 		return rest.getForObject(searchURL + category + "/" + searchTerm, String.class);
 	}
 
@@ -89,8 +90,8 @@ public class CoreServiceImpl implements CoreService {
 		return "Audit request logs sent";
 	}
 
-	public String sendSearchLog(String username, Long id, String searchTerm) {
-		AuditSearchLog searchLog = new AuditSearchLog(username, id, searchTerm);
+	public String sendSearchLog(String username, String category, String searchTerm) {
+		AuditSearchLog searchLog = new AuditSearchLog(username, category, searchTerm);
 		jmsTemplate.convertAndSend("SearchLogQueue", searchLog);
 		return "Audit search logs sent";
 	}

@@ -5,15 +5,15 @@ import java.util.Date;
 public class AuditSearchLog {
 
 	private String username;
-	private long id;
 	private Date timeStamp;
 	private String searchTerm;
+	private String category;
 
-	public AuditSearchLog(String username, Long id, String searchTerm) {
+	public AuditSearchLog(String username, String category, String searchTerm) {
 		this.username = username;
-		this.id = id;
-		this.timeStamp = new Date();
+		this.category = category;
 		this.searchTerm = searchTerm;
+		this.timeStamp = new Date();
 	}
 
 	public AuditSearchLog() {
@@ -25,14 +25,6 @@ public class AuditSearchLog {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public Date getTimeStamp() {
@@ -49,6 +41,14 @@ public class AuditSearchLog {
 
 	public void setSearchTerm(String searchTerm) {
 		this.searchTerm = searchTerm;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

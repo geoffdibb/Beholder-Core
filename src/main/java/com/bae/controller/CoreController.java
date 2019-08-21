@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.entity.User;
 import com.bae.service.CoreService;
 
 @RestController
@@ -34,8 +33,9 @@ public class CoreController {
 	}
 
 	@GetMapping("${path.search}")
-	public ResponseEntity<Object> search(@PathVariable String category, @PathVariable String searchTerm) {
-		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
+	public ResponseEntity<Object> search(@PathVariable String username, @PathVariable String category,
+			@PathVariable String searchTerm) {
+		return new ResponseEntity<>(service.search(username, category, searchTerm), HttpStatus.OK);
 	}
 
 	@GetMapping("${path.profile}")
