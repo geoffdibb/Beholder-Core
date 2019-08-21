@@ -34,5 +34,16 @@ public class UserTest {
 		Constant.MOCK_USER_OBJECT2.setId((long) 2);
 		assertEquals((long) 2, Constant.MOCK_USER_OBJECT2.getId());
 	}
+	
+	@Test
+	public void getPasswordTest() {
+		assertEquals("password", Constant.MOCK_USER_OBJECT.getPassword());
+	}
+
+	@Test
+	public void setPasswordTest() {
+		Constant.MOCK_USER_OBJECT2.setPassword("password2");
+		assertEquals("password2", Constant.MOCK_USER_OBJECT2.getPassword());
+	}
 
 }
