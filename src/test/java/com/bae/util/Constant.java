@@ -41,6 +41,7 @@ public class Constant {
 	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT = new AuditUserAccessLog("name", (long) 1);
 	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name", (long) 1);
 	public static final String MOCK_AUDITUSER_OBJECT3 = null;
+	public static final String MOCK_AUDITUSER_OBJECT4 = "Audit user logs sent";
 
 	public static final Date MOCK_TIME_OBJECT = new Date();
 
