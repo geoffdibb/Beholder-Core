@@ -1,20 +1,19 @@
 package com.bae.entity;
 
-import java.util.Date;
-
-public class AuditRequestLog {
+public class User {
 
 	private String username;
 	private long id;
-	private Date timeStamp;
+	private String password;
 
-	public AuditRequestLog(String username, long id) {
+	public User(String username, long id, String password) {
 		this.username = username;
 		this.id = id;
-		this.timeStamp = new Date();
+		this.password = password;
 	}
 
-	public AuditRequestLog() {
+	public User() {
+
 	}
 
 	public String getUsername() {
@@ -33,12 +32,12 @@ public class AuditRequestLog {
 		this.id = id;
 	}
 
-	public Date getTimeStamp() {
-		return timeStamp;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

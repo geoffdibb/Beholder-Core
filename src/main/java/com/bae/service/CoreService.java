@@ -2,6 +2,8 @@ package com.bae.service;
 
 import org.springframework.stereotype.Service;
 
+import com.bae.entity.User;
+
 @Service
 public interface CoreService {
 

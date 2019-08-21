@@ -2,22 +2,26 @@ package com.bae.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Optional;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.TextMessage;
 
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -35,6 +39,11 @@ public class CoreServiceImplTests {
 
 	@Mock
 	JmsTemplate jmsTemplate;
+
+	private JmsMessagingTemplate messagingTemplate;
+
+	@Captor
+	private ArgumentCaptor<MessageCreator> messageCreator;
 
 	@Value("${url.user}")
 	private String userLoginURL;
@@ -56,6 +65,16 @@ public class CoreServiceImplTests {
 
 	@Value("${url.AuditSearch}")
 	private String auditSearchURL;
+
+	@Before
+	public void setup() {
+		this.messagingTemplate = new JmsMessagingTemplate(this.jmsTemplate);
+	}
+
+	@Test
+	public void validateJmsTemplate() {
+		assertThat(this.messagingTemplate.getJmsTemplate()).isSameAs(this.jmsTemplate);
+	}
 
 	@Test
 	public void contextLoads() {
@@ -113,18 +132,23 @@ public class CoreServiceImplTests {
 		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog());
 	}
 
+	@Ignore
 	@Test
-	public void sendAuditUserAccessLogs() {
-//		Mockito.when(jmsTemplate.convertAndSend("SearchLogQueue", Constant.MOCK_AUDITLOG_OBJECT))
-//				.thenReturn(Constant.MOCK_AUDITLOG_OBJECT.toString());
-//		assertEquals(Constant.MOCK_AUDITLOG_OBJECT, service.sendAuditUserAccessLogs("name", 1));
+	public void convertAndSendPayload() throws JMSException {
+		Message<String> message = createTextMessage();
+		this.messagingTemplate.convertAndSend(Constant.destination);
+		verify(this.jmsTemplate).send((javax.jms.Destination) Constant.destination, this.messageCreator.capture());
+		TextMessage textMessage = createTextMessage(this.messageCreator.getValue());
+		assertThat(textMessage.getText()).isEqualTo("my Payload");
 	}
 
+	@Ignore
 	@Test
 	public void sendAuditRequestLogTest() {
 
 	}
 
+	@Ignore
 	@Test
 	public void sendSearchLogTest() {
 
