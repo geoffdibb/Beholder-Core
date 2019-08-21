@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.entity.User;
 import com.bae.service.CoreService;
+import com.bae.util.SecurityUtils;
 
 @RestController
 @RequestMapping("${path.controller}")
@@ -62,6 +63,18 @@ public class CoreController {
 	public ResponseEntity<Object> getSearchLog() {
 		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
 	}
+
+	@GetMapping(path = "/username")
+	@PreAuthorize("hasAnyAuthority('ROLE_USER')")
+	public ResponseEntity<String> getAuthorizedUserName() {
+		return ResponseEntity.ok(SecurityUtils.getUser());
+	}
+
+//	@GetMapping(path = "/roles")
+//	@PreAuthorize("hasAnyAuthority('ROLE_USER')")
+//	public ResponseEntity<Set<String>> getAuthorizedUserRoles() {
+//		return ResponseEntity.ok(SecurityUtils.getUserRoles());
+//	}
 
 	public CoreService getService() {
 		return service;
