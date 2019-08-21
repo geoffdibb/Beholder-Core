@@ -46,8 +46,8 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String userLogin(Object user) {
-		User userToSend = (User) user;
-		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
+//		User userToSend = (User) user;
+//		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
