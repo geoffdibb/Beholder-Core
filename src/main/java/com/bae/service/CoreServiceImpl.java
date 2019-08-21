@@ -47,7 +47,6 @@ public class CoreServiceImpl implements CoreService {
 	}
 
 	public String userLogin(Object user) {
-
 		ObjectMapper mapper = new ObjectMapper();
 		User userToSend = mapper.convertValue(user, User.class);
 		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());

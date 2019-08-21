@@ -133,7 +133,6 @@ public class CoreServiceImplTests {
 
 	public void convertAndSendPayload() throws JMSException {
 		Destination destination = new Destination() {};
-
 		this.messagingTemplate.convertAndSend(destination);
 		verify(this.jmsTemplate).send(eq(destination), this.messageCreator.capture());
 		TextMessage textMessage = createTextMessage(this.messageCreator.getValue());
