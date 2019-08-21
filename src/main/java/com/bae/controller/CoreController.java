@@ -54,13 +54,13 @@ public class CoreController {
 	}
 
 	@GetMapping("${path.getAuditUserAccessLog}")
-	public ResponseEntity<Object> getAuditUserAccessLog() {
-		return new ResponseEntity<>(service.getAuditUserAccessLog(), HttpStatus.OK);
+	public ResponseEntity<Object> getAuditUserAccessLog(@PathVariable String username) {
+		return new ResponseEntity<>(service.getAuditUserAccessLog(username), HttpStatus.OK);
 	}
 
 	@GetMapping("${path.getSearchLog}")
-	public ResponseEntity<Object> getSearchLog() {
-		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
+	public ResponseEntity<Object> getSearchLog(@PathVariable String username) {
+		return new ResponseEntity<>(service.getSearchLog(username), HttpStatus.OK);
 	}
 
 	public CoreService getService() {

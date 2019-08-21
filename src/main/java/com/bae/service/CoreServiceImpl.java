@@ -70,11 +70,13 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject(auditRequestURL, String.class);
 	}
 
-	public String getAuditUserAccessLog() {
+	public String getAuditUserAccessLog(String username) {
+		sendAuditRequestLog(username);
 		return rest.getForObject(auditUserURL, String.class);
 	}
 
-	public String getSearchLog() {
+	public String getSearchLog(String username) {
+		sendAuditRequestLog(username);
 		return rest.getForObject(auditSearchURL, String.class);
 	}
 
@@ -84,8 +86,8 @@ public class CoreServiceImpl implements CoreService {
 		return "Audit user logs sent";
 	}
 
-	public String sendAuditRequestLog(String username, long id) {
-		AuditRequestLog audit = new AuditRequestLog(username, id);
+	public String sendAuditRequestLog(String username) {
+		AuditRequestLog audit = new AuditRequestLog(username);
 		jmsTemplate.convertAndSend("AuditRequestQueue", audit);
 		return "Audit request logs sent";
 	}

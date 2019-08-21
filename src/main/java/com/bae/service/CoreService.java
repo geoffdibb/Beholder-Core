@@ -15,11 +15,11 @@ public interface CoreService {
 
 	String getAuditRequestLog();
 
-	String getAuditUserAccessLog();
+	String getAuditUserAccessLog(String username);
 
-	String getSearchLog();
+	String getSearchLog(String username);
 
-	String sendAuditRequestLog(String username, long id);
+	String sendAuditRequestLog(String username);
 
 	String sendAuditUserAccessLogs(String username, long id);
 
