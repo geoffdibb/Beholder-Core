@@ -2,14 +2,12 @@ package com.bae.service;
 
 import org.springframework.stereotype.Service;
 
-import com.bae.entity.User;
-
 @Service
 public interface CoreService {
 
 	String userLogin(Object user);
 
-	String search(String category, String searchTerm);
+	String search(String username, String category, String searchTerm);
 
 	String getProfile(long id);
 
@@ -17,13 +15,13 @@ public interface CoreService {
 
 	String getAuditRequestLog();
 
-	String getAuditUserAccessLog();
+	String getAuditUserAccessLog(String username);
 
-	String getSearchLog();
+	String getSearchLog(String username);
 
-	String sendAuditRequestLog(String username, long id);
+	String sendAuditRequestLog(String username);
 
-	String sendAuditUserAccessLogs(String username, long id);
+	String sendAuditUserAccessLogs(String username);
 
-	String sendSearchLog(String username, Long id, String searchTerm);
+	String sendSearchLog(String username, String category, String searchTerm);
 }

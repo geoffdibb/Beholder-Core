@@ -2,14 +2,8 @@ package com.bae.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.verify;
-
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.TextMessage;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -90,11 +84,10 @@ public class CoreServiceImplTests {
 
 	@Test
 	public void searchTest() {
-		Mockito.when(rest.getForObject(
-				searchURL + Constant.MOCK_CATEGORY_OBJECT + "/" + Constant.MOCK_SEARCHTERM_OBJECT, String.class))
-				.thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
+		Mockito.when(rest.getForObject(searchURL + Constant.MOCK_CATEGORY_OBJECT + "/" + Constant.MOCK_SEARCHTERM_OBJECT
+				+ "/" + Constant.MOCK_USERNAME, String.class)).thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
 		assertEquals(Constant.MOCK_SEARCH_OBJECT3,
-				service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT));
+				service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT, Constant.MOCK_USERNAME));
 	}
 
 	@Test
@@ -122,36 +115,14 @@ public class CoreServiceImplTests {
 	public void getAuditUserAccessLogTest() {
 		Mockito.when(rest.getForObject(auditUserURL, String.class))
 				.thenReturn(Constant.MOCK_AUDITUSER_OBJECT.toString());
-		assertEquals(Constant.MOCK_AUDITUSER_OBJECT3, service.getAuditUserAccessLog());
+		assertEquals(Constant.MOCK_AUDITUSER_OBJECT3, service.getAuditUserAccessLog(Constant.MOCK_USERNAME));
 	}
 
 	@Test
 	public void getSearchLog() {
 		Mockito.when(rest.getForObject(auditSearchURL, String.class))
 				.thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
-		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog());
-	}
-
-	@Ignore
-	@Test
-	public void convertAndSendPayload() throws JMSException {
-		Message<String> message = createTextMessage();
-		this.messagingTemplate.convertAndSend(Constant.destination);
-		verify(this.jmsTemplate).send((javax.jms.Destination) Constant.destination, this.messageCreator.capture());
-		TextMessage textMessage = createTextMessage(this.messageCreator.getValue());
-		assertThat(textMessage.getText()).isEqualTo("my Payload");
-	}
-
-	@Ignore
-	@Test
-	public void sendAuditRequestLogTest() {
-
-	}
-
-	@Ignore
-	@Test
-	public void sendSearchLogTest() {
-
+		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog(Constant.MOCK_USERNAME));
 	}
 
 	@Test

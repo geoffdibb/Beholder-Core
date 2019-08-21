@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.entity.User;
 import com.bae.service.CoreService;
 
 @RestController
@@ -34,8 +33,9 @@ public class CoreController {
 	}
 
 	@GetMapping("${path.search}")
-	public ResponseEntity<Object> search(@PathVariable String category, @PathVariable String searchTerm) {
-		return new ResponseEntity<>(service.search(category, searchTerm), HttpStatus.OK);
+	public ResponseEntity<Object> search(@PathVariable String username, @PathVariable String category,
+			@PathVariable String searchTerm) {
+		return new ResponseEntity<>(service.search(username, category, searchTerm), HttpStatus.OK);
 	}
 
 	@GetMapping("${path.profile}")
@@ -54,13 +54,13 @@ public class CoreController {
 	}
 
 	@GetMapping("${path.getAuditUserAccessLog}")
-	public ResponseEntity<Object> getAuditUserAccessLog() {
-		return new ResponseEntity<>(service.getAuditUserAccessLog(), HttpStatus.OK);
+	public ResponseEntity<Object> getAuditUserAccessLog(@PathVariable String username) {
+		return new ResponseEntity<>(service.getAuditUserAccessLog(username), HttpStatus.OK);
 	}
 
 	@GetMapping("${path.getSearchLog}")
-	public ResponseEntity<Object> getSearchLog() {
-		return new ResponseEntity<>(service.getSearchLog(), HttpStatus.OK);
+	public ResponseEntity<Object> getSearchLog(@PathVariable String username) {
+		return new ResponseEntity<>(service.getSearchLog(username), HttpStatus.OK);
 	}
 
 	public CoreService getService() {

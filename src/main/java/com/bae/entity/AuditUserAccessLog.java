@@ -5,12 +5,10 @@ import java.util.Date;
 public class AuditUserAccessLog {
 
 	private String username;
-	private long id;
 	private Date timeStamp;
 
-	public AuditUserAccessLog(String username, long id) {
+	public AuditUserAccessLog(String username) {
 		this.username = username;
-		this.id = id;
 		this.timeStamp = new Date();
 	}
 
@@ -23,14 +21,6 @@ public class AuditUserAccessLog {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public Date getTimeStamp() {

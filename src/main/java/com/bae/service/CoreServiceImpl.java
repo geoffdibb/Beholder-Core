@@ -49,11 +49,12 @@ public class CoreServiceImpl implements CoreService {
 	public String userLogin(Object user) {
 		ObjectMapper mapper = new ObjectMapper();
 		User userToSend = mapper.convertValue(user, User.class);
-		sendAuditUserAccessLogs(userToSend.getUsername(), userToSend.getId());
+		sendAuditUserAccessLogs(userToSend.getUsername());
 		return rest.postForObject(userLoginURL, user, String.class);
 	}
 
-	public String search(String category, String searchTerm) {
+	public String search(String username, String category, String searchTerm) {
+		sendSearchLog(username, category, searchTerm);
 		return rest.getForObject(searchURL + category + "/" + searchTerm, String.class);
 	}
 
@@ -69,28 +70,30 @@ public class CoreServiceImpl implements CoreService {
 		return rest.getForObject(auditRequestURL, String.class);
 	}
 
-	public String getAuditUserAccessLog() {
+	public String getAuditUserAccessLog(String username) {
+		sendAuditRequestLog(username);
 		return rest.getForObject(auditUserURL, String.class);
 	}
 
-	public String getSearchLog() {
+	public String getSearchLog(String username) {
+		sendAuditRequestLog(username);
 		return rest.getForObject(auditSearchURL, String.class);
 	}
 
-	public String sendAuditUserAccessLogs(String username, long id) {
-		AuditUserAccessLog auditUser = new AuditUserAccessLog(username, id);
+	public String sendAuditUserAccessLogs(String username) {
+		AuditUserAccessLog auditUser = new AuditUserAccessLog(username);
 		jmsTemplate.convertAndSend("AuditUserAccessQueue", auditUser);
 		return "Audit user logs sent";
 	}
 
-	public String sendAuditRequestLog(String username, long id) {
-		AuditRequestLog audit = new AuditRequestLog(username, id);
+	public String sendAuditRequestLog(String username) {
+		AuditRequestLog audit = new AuditRequestLog(username);
 		jmsTemplate.convertAndSend("AuditRequestQueue", audit);
 		return "Audit request logs sent";
 	}
 
-	public String sendSearchLog(String username, Long id, String searchTerm) {
-		AuditSearchLog searchLog = new AuditSearchLog(username, id, searchTerm);
+	public String sendSearchLog(String username, String category, String searchTerm) {
+		AuditSearchLog searchLog = new AuditSearchLog(username, category, searchTerm);
 		jmsTemplate.convertAndSend("SearchLogQueue", searchLog);
 		return "Audit search logs sent";
 	}
