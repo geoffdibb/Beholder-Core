@@ -5,10 +5,11 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import javax.jms.JMSException;
+import javax.jms.Message;
 import javax.jms.TextMessage;
 
-import org.apache.activemq.broker.region.Destination;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -38,9 +39,9 @@ public class CoreServiceImplTests {
 
 	@Mock
 	JmsTemplate jmsTemplate;
-	
+
 	private JmsMessagingTemplate messagingTemplate;
-	
+
 	@Captor
 	private ArgumentCaptor<MessageCreator> messageCreator;
 
@@ -64,7 +65,7 @@ public class CoreServiceImplTests {
 
 	@Value("${url.AuditSearch}")
 	private String auditSearchURL;
-	
+
 	@Before
 	public void setup() {
 		this.messagingTemplate = new JmsMessagingTemplate(this.jmsTemplate);
@@ -131,19 +132,23 @@ public class CoreServiceImplTests {
 		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog());
 	}
 
+	@Ignore
+	@Test
 	public void convertAndSendPayload() throws JMSException {
-		
+		Message<String> message = createTextMessage();
 		this.messagingTemplate.convertAndSend(Constant.destination);
-		verify(this.jmsTemplate).send(eq(Constant.destination), this.messageCreator.capture());
+		verify(this.jmsTemplate).send((javax.jms.Destination) Constant.destination, this.messageCreator.capture());
 		TextMessage textMessage = createTextMessage(this.messageCreator.getValue());
 		assertThat(textMessage.getText()).isEqualTo("my Payload");
 	}
 
+	@Ignore
 	@Test
 	public void sendAuditRequestLogTest() {
 
 	}
 
+	@Ignore
 	@Test
 	public void sendSearchLogTest() {
 
