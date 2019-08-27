@@ -53,5 +53,5 @@ public class Constant {
 
 	public static final User MOCK_USER_OBJECT = new User("name", (long) 1, "password");
 	public static final User MOCK_USER_OBJECT2 = new User("name", (long) 1, "password");
-
+	
 }
