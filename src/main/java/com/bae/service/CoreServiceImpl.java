@@ -19,8 +19,8 @@ public class CoreServiceImpl implements CoreService {
 
 	private JmsTemplate jmsTemplate;
 
-	@Value("${url.user}")
-	private String userLoginURL;
+//	@Value("${url.user}")
+//	private String userLoginURL;
 
 	@Value("${url.search}")
 	private String searchURL;
@@ -50,7 +50,8 @@ public class CoreServiceImpl implements CoreService {
 		ObjectMapper mapper = new ObjectMapper();
 		User userToSend = mapper.convertValue(user, User.class);
 		sendAuditUserAccessLogs(userToSend.getUsername());
-		return rest.postForObject(userLoginURL, user, String.class);
+//		return rest.postForObject(userLoginURL, user, String.class);
+		return "log sent";
 	}
 
 	public String search(String username, String category, String searchTerm) {
