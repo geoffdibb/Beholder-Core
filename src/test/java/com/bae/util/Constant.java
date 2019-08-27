@@ -42,16 +42,16 @@ public class Constant {
 	public static final AuditUserAccessLog MOCK_AUDITUSER_OBJECT2 = new AuditUserAccessLog("name");
 	public static final String MOCK_AUDITUSER_OBJECT3 = null;
 	public static final String MOCK_AUDITUSER_OBJECT4 = "Audit user logs sent";
-	public static final String MOCK_USERNAME = "user1";
+	public static final String MOCK_USERNAME_OBJECT = "user1";
 
 	public static final Date MOCK_TIME_OBJECT = new Date();
 
 	public static final String MOCK_CATEGORY_OBJECT = "category";
 	public static final String MOCK_SEARCHTERM_OBJECT = "searchTerm";
+	public static final String MOCK_RETURNMESSAGE_OBJECT = "log sent";
 	public static final long MOCK_ID_OBJECT = 1;
 
 	public static final User MOCK_USER_OBJECT = new User("name", (long) 1, "password");
 	public static final User MOCK_USER_OBJECT2 = new User("name", (long) 1, "password");
-	
-	public static final String MOCK_RETURNMESSAGE_OBJECT ="log sent";
+
 }
