@@ -39,8 +39,6 @@ public class CoreServiceImplTests {
 	@Captor
 	private ArgumentCaptor<MessageCreator> messageCreator;
 
-	@Value("${url.user}")
-	private String userLoginURL;
 
 	@Value("${url.search}")
 	private String searchURL;
@@ -77,9 +75,7 @@ public class CoreServiceImplTests {
 
 	@Test
 	public void userLoginTest() {
-		Mockito.when(rest.getForObject(userLoginURL, String.class))
-				.thenReturn(Constant.MOCK_USERLOGIN_OBJECT.toString());
-		assertEquals(Constant.MOCK_USERLOGIN_OBJECT3, service.userLogin(Constant.MOCK_USER_OBJECT));
+		assertEquals(Constant.MOCK_RETURNMESSAGE_OBJECT, service.userLogin(Constant.MOCK_USER_OBJECT));
 	}
 
 	@Test
