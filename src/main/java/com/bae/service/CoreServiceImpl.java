@@ -50,7 +50,6 @@ public class CoreServiceImpl implements CoreService {
 		ObjectMapper mapper = new ObjectMapper();
 		User userToSend = mapper.convertValue(user, User.class);
 		sendAuditUserAccessLogs(userToSend.getUsername());
-//		return rest.postForObject(userLoginURL, user, String.class);
 		return "log sent";
 	}
 

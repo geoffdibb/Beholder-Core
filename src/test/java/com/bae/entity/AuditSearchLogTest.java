@@ -45,5 +45,16 @@ public class AuditSearchLogTest {
 		Constant.MOCK_AUDITSEARCH_OBJECT2.setSearchTerm("search2");
 		assertEquals("search2", Constant.MOCK_AUDITSEARCH_OBJECT2.getSearchTerm());
 	}
+	
+	@Test
+	public void getCategoryTest() {
+		assertEquals("category", Constant.MOCK_AUDITSEARCH_OBJECT.getCategory());
+	}
+	
+	@Test
+	public void setCategoryTest() {
+		Constant.MOCK_AUDITSEARCH_OBJECT2.setCategory("search2");
+		assertEquals("search2", Constant.MOCK_AUDITSEARCH_OBJECT2.getCategory());
+	}
 
 }

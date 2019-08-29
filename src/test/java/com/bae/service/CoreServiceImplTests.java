@@ -39,8 +39,6 @@ public class CoreServiceImplTests {
 	@Captor
 	private ArgumentCaptor<MessageCreator> messageCreator;
 
-	@Value("${url.user}")
-	private String userLoginURL;
 
 	@Value("${url.search}")
 	private String searchURL;
@@ -77,17 +75,15 @@ public class CoreServiceImplTests {
 
 	@Test
 	public void userLoginTest() {
-		Mockito.when(rest.getForObject(userLoginURL, String.class))
-				.thenReturn(Constant.MOCK_USERLOGIN_OBJECT.toString());
-		assertEquals(Constant.MOCK_USERLOGIN_OBJECT3, service.userLogin(Constant.MOCK_USER_OBJECT));
+		assertEquals(Constant.MOCK_RETURNMESSAGE_OBJECT, service.userLogin(Constant.MOCK_USER_OBJECT));
 	}
 
 	@Test
 	public void searchTest() {
 		Mockito.when(rest.getForObject(searchURL + Constant.MOCK_CATEGORY_OBJECT + "/" + Constant.MOCK_SEARCHTERM_OBJECT
-				+ "/" + Constant.MOCK_USERNAME, String.class)).thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
+				+ "/" + Constant.MOCK_USERNAME_OBJECT, String.class)).thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
 		assertEquals(Constant.MOCK_SEARCH_OBJECT3,
-				service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT, Constant.MOCK_USERNAME));
+				service.search(Constant.MOCK_CATEGORY_OBJECT, Constant.MOCK_SEARCHTERM_OBJECT, Constant.MOCK_USERNAME_OBJECT));
 	}
 
 	@Test
@@ -115,14 +111,14 @@ public class CoreServiceImplTests {
 	public void getAuditUserAccessLogTest() {
 		Mockito.when(rest.getForObject(auditUserURL, String.class))
 				.thenReturn(Constant.MOCK_AUDITUSER_OBJECT.toString());
-		assertEquals(Constant.MOCK_AUDITUSER_OBJECT3, service.getAuditUserAccessLog(Constant.MOCK_USERNAME));
+		assertEquals(Constant.MOCK_AUDITUSER_OBJECT3, service.getAuditUserAccessLog(Constant.MOCK_USERNAME_OBJECT));
 	}
 
 	@Test
 	public void getSearchLog() {
 		Mockito.when(rest.getForObject(auditSearchURL, String.class))
 				.thenReturn(Constant.MOCK_SEARCH_OBJECT.toString());
-		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog(Constant.MOCK_USERNAME));
+		assertEquals(Constant.MOCK_SEARCH_OBJECT3, service.getSearchLog(Constant.MOCK_USERNAME_OBJECT));
 	}
 
 	@Test

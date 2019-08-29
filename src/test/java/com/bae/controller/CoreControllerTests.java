@@ -76,16 +76,16 @@ public class CoreControllerTests {
 
 	@Test
 	public void getAuditUserAccessLog() {
-		Mockito.when(service.getAuditUserAccessLog(Constant.MOCK_USERNAME)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
-		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog(Constant.MOCK_USERNAME));
-		Mockito.verify(service).getAuditUserAccessLog(Constant.MOCK_USERNAME);
+		Mockito.when(service.getAuditUserAccessLog(Constant.MOCK_USERNAME_OBJECT)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getAuditUserAccessLog(Constant.MOCK_USERNAME_OBJECT));
+		Mockito.verify(service).getAuditUserAccessLog(Constant.MOCK_USERNAME_OBJECT);
 	}
 
 	@Test
 	public void getSearchLogTest() {
-		Mockito.when(service.getSearchLog(Constant.MOCK_USERNAME)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
-		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog(Constant.MOCK_USERNAME));
-		Mockito.verify(service).getSearchLog(Constant.MOCK_USERNAME);
+		Mockito.when(service.getSearchLog(Constant.MOCK_USERNAME_OBJECT)).thenReturn(Constant.MOCK_AUDIT_OBJECT2);
+		assertEquals(Constant.MOCK_AUDIT_OBJECT, controller.getSearchLog(Constant.MOCK_USERNAME_OBJECT));
+		Mockito.verify(service).getSearchLog(Constant.MOCK_USERNAME_OBJECT);
 	}
 
 	@Test
